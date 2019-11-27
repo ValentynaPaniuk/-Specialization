@@ -1,0 +1,4 @@
+﻿  Group.cpp
+d:\paniuk\classwork\classwork20191126_static_group\group.cpp(24): warning C4018: '<': signed/unsigned mismatch
+d:\paniuk\classwork\classwork20191126_static_group\group.cpp(58): warning C4018: '<=': signed/unsigned mismatch
+  Classwork20191126_Static_Group.vcxproj -> D:\Paniuk\Classwork\Classwork20191126_Static_Group\Debug\Classwork20191126_Static_Group.exe

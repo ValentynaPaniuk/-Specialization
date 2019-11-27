@@ -1,0 +1,3 @@
+﻿  Account.cpp
+d:\шаг\specialization\classwork20191119\classwork20191119\account.cpp(36): warning C4244: return: преобразование "double" в "unsigned int", возможна потеря данных
+  Classwork20191119.vcxproj -> D:\Шаг\Specialization\Classwork20191119\Debug\Classwork20191119.exe

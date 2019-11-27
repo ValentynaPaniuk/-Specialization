@@ -1,0 +1,3 @@
+﻿  Int.cpp
+d:\paniuk\classwork\homework20191121_int\int.cpp(35): warning C4715: 'Int::Division': not all control paths return a value
+  Homework20191121_Int.vcxproj -> D:\Paniuk\Classwork\Homework20191121_Int\Debug\Homework20191121_Int.exe
