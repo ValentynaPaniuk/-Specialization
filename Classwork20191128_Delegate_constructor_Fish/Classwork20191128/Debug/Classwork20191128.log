@@ -1,4 +1,5 @@
-﻿  Fish.cpp
-  Source20191128.cpp
-  Generating Code...
-  Classwork20191128.vcxproj -> D:\Paniuk\Classwork\Classwork20191128_Delegate_constructor_Fish\Debug\Classwork20191128.exe
+﻿  Source20191128.cpp
+d:\шаг\specialization\classwork20191128_delegate_constructor_fish\classwork20191128\source20191128.cpp(34): warning C4101: health: неиспользованная локальная переменная
+d:\шаг\specialization\classwork20191128_delegate_constructor_fish\classwork20191128\source20191128.cpp(34): warning C4101: y: неиспользованная локальная переменная
+d:\шаг\specialization\classwork20191128_delegate_constructor_fish\classwork20191128\source20191128.cpp(34): warning C4101: x: неиспользованная локальная переменная
+  Classwork20191128.vcxproj -> D:\Шаг\Specialization\Classwork20191128_Delegate_constructor_Fish\Debug\Classwork20191128.exe

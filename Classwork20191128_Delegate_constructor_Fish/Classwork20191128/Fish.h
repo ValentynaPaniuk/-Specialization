@@ -26,27 +26,46 @@ using namespace std;
 class Fish
 {
 	string nameFish;
+	int ID;
 	int x;
 	int y;
 	int health;
 	int famine;
+	Fish *fish;
+
 
 	
 	static int ocean[10][10];
 	static int counter;
 
 
-	void updateHealth();
-	void updateFamile();
+	void UpdateHealth();
+	void UpdateFamile();
+	void UpdateX();
+	void UpdateY();
+	
 
 
 public:
 	Fish();
 	Fish(string nameFish, int x, int y, int health);
 	void ShowInfoFish();
+	int GetID();
+	int GetX();
+	int GetY();
+
+	void SetHealth(int health);
+	void SetFamile(int famine);
+	void SetX(int x);
+	void SetY(int y);
+
 	void HidingFish();
 	void MovingFish();
-
+	void MoveFish(int V, int H);
+	void goForward(Fish *fish);
+	void goBack(Fish *fish);
+	
+	static int GetCounter();
 	static void PrintOcean();
 
 
