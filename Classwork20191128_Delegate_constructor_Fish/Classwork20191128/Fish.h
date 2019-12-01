@@ -29,11 +29,13 @@ class Fish
 	int ID;
 	int x;
 	int y;
+	int curseX;
+	int curseY;
 	int health;
 	int famine;
 	Fish *fish;
 
-
+	
 	
 	static int ocean[10][10];
 	static int counter;
@@ -61,6 +63,8 @@ public:
 
 	void HidingFish();
 	void MovingFish();
+	void MovementFish();
+
 	void MoveFish(int V, int H);
 	void goForward(Fish *fish);
 	void goBack(Fish *fish);

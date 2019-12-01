@@ -1,0 +1,5 @@
+﻿  Fish.cpp
+  Source.cpp
+  Создание кода...
+d:\шаг\specialization\fish\fish.cpp(222): warning C4715: Fish::Get_health: значение возвращается не при всех путях выполнения
+  Fish.vcxproj -> D:\Шаг\Specialization\Fish\Debug\Fish.exe

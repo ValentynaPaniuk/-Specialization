@@ -32,6 +32,28 @@ int Fish :: counter = 0;
 int Fish::ocean[10][10];
 
 
+void Fish::MovementFish()
+{
+	bool curseX = rand() % 3;
+	bool curseY = rand() % 3;
+	if (curseX == true)
+	{
+		this->curseX++;
+	}
+	else 
+	{
+		this->curseX--;
+	}
+	if (curseY == true)
+	{
+		this->curseY++;
+	}
+	else
+	{
+		this->curseY--;
+	}
+}
+
 void Fish::UpdateHealth()
 {
 	health--;

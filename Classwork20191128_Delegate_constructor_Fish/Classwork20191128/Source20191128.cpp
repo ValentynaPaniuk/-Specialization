@@ -44,7 +44,7 @@ int main()
 	cin >> health;*/
 
 	Fish fish1("Karp", 5,3,8);
-	fish1.MovingFish();
+	fish1.MovementFish();
 
 	/*cout << "Name: ";
 	cin >> nameFish;
@@ -56,7 +56,7 @@ int main()
 	cin >> health;*/
 
 	Fish fish2("Schuka", 3, 4, 15);
-	fish2.MovingFish();
+	fish2.MovementFish();
 
 	/*cout << "Name: ";
 	cin >> nameFish;
@@ -68,7 +68,7 @@ int main()
 	cin >> health;*/
 
 	Fish fish3("Delphin", 2, 3, 11);
-	fish3.MovingFish();
+	fish3.MovementFish();
 
 	/*cout << "Name: ";
 	cin >> nameFish;
@@ -80,8 +80,8 @@ int main()
 	cin >> health;*/
 
 	Fish fish4("Karas", 5, 8, 12);
-	fish4.MovingFish();
-	fish4.PrintOcean();
+	fish4.MovementFish();
+	Fish::PrintOcean();
 
 
 	cout << "*****************" << endl;
