@@ -38,25 +38,26 @@ void Fish::MovementFish()
 	bool curseY = rand() % 3;
 	if (curseX == true)
 	{
-		this->curseX++;
+		this->x++;
 	}
 	else 
 	{
-		this->curseX--;
+		this->x--;
 	}
 	if (curseY == true)
 	{
-		this->curseY++;
+		this->y++;
 	}
 	else
 	{
-		this->curseY--;
+		this->y--;
 	}
 }
 
 void Fish::UpdateHealth()
 {
 	health--;
+	
 }
 
 void Fish::UpdateFamile()
@@ -98,7 +99,7 @@ Fish::Fish(string nameFish, int x, int y, int health)
 
 void Fish::ShowInfoFish()
 {
-	cout << nameFish <<" \t\t\t"<< GetID() <<" "<<" coordinates: " << "(" << x << ";" << y << ")   Health: " << health << endl;
+	cout << nameFish <<" \t\t\t"<< GetID() <<" "<<" coordinates: " << "(" << x << ";" << y << ")   Health: "<< health << endl;
 }
 
 
@@ -138,66 +139,51 @@ void Fish::SetY(int y)
 }
 
 
-
-
-//this->x = rand() % 10 + 1;
-//this->y = rand() % 10 + 1;
-
+void Fish::ProblemFish()
+{
+	if (this->x < 0)
+	{
+		this->x += 2;
+	}
+	else if (this->x >= 10)
+	{
+		this->x -= 2;
+	}
+	if (this->y < 0)
+	{
+		this->y += 2;
+	}
+	else if (this->y >= 10)
+	{
+		this->y -= 2;
+	}
+}
 
 void Fish::MovingFish()
 {
 	srand(unsigned(time(NULL)));
-	
+	ProblemFish();
 	for (int i = 0; i < 10; i++)
 	{
+	
 		for (int j = 0; j < 10; j++)
 		{
 			
-			if (i == this->x && j == this->y)
+			if (this->x == i && this->y == j)
 			{
 				this->ocean[i][j] = ID;
+				MovementFish();
+				if (health <=0)
+				{
+					this->ocean[i][j] = 0;
+				}
+	
 			}
 		}
-			
 	}
 	cout << endl;
-		
 }
 
-void Fish::MoveFish(int V, int H)
-{
-	int y2 = y + V;
-	int x2 = x + H;
-	if (ocean[y][x2] == 0)
-	{
-		ocean[y][x] = 0;
-		x += H;
-		ocean[y][x] = ID;
-	}
-	if (ocean[y2][x] == 0)
-	{
-		ocean[y][x] = 0;
-		x += V;
-		ocean[y][x] = ID;
-	}
-
-}
-
-void Fish::goForward(Fish *fish)
-{
-	for (int i = 0; i < 9; i++)
-	{
-		cout << fish[i + 1].GetX() << "," << fish[i + 1].GetY();
-	}
-}
-
-void Fish::goBack(Fish * fish)
-{
-	for (int i = 9; i > 1; i--)
-	{
-		cout << fish[i - 1].GetX() << "," << fish[i - 1].GetY() << endl;
-	}
-}
 
 
 int Fish::GetCounter()
@@ -207,15 +193,13 @@ int Fish::GetCounter()
 
 void Fish::PrintOcean()
 {
-		for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
-
 		for (int j = 0; j < 10; j++)
 		{
 
 			cout << ocean[i][j] << " ";
 		
-			
 		}
 		cout << endl;
 	}

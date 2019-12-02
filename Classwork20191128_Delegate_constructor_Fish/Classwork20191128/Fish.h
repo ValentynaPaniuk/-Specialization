@@ -62,12 +62,11 @@ public:
 	void SetY(int y);
 
 	void HidingFish();
+	void ProblemFish();
 	void MovingFish();
 	void MovementFish();
 
-	void MoveFish(int V, int H);
-	void goForward(Fish *fish);
-	void goBack(Fish *fish);
+
 	
 	static int GetCounter();
 	static void PrintOcean();
