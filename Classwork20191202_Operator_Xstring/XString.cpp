@@ -31,7 +31,7 @@ XString::XString(XString &other)
 	this->size = other.size;
 	this->arr = other.arr;
 	
-	cout << "Copy constructor" << this << endl;
+	cout << "Copy constructor " << this << endl;
 }
 
 void XString::ShowInfoRow()
@@ -45,6 +45,59 @@ void XString::ShowInfoRow()
 	cout << endl;
 	cout << "SIZE SHOW INFO= " << strlen(this->arr) << endl;
 	
+}
+
+XString & XString::operator*(const XString & other)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		if (this->arr[i] == other.arr[i])
+			cout << arr[i]<<" ";
+	}
+
+	return *this;
+}
+
+XString & XString::operator/(const XString & other)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		if (this->arr[i] != other.arr[i])
+			cout << arr[i] << " ";
+	}
+
+	return *this;
+}
+
+XString & XString::operator+(const XString & other)
+{
+	
+	int size1 = strlen(this->arr);
+	int size2 = strlen(other.arr);
+	
+	cout << "SIZE this ARR1: " << size1 << endl;
+	cout << "SIZE other ARR2: " << size2 << endl;
+	int j = 0;
+	for (int i = 0; i < 80; i++)
+	{
+		if (i < size1)
+		{
+			this->arr[i] = this->arr[i];
+		}
+		else 
+		{
+			this->arr[i] = other.arr[j];
+		}
+	}
+
+	cout << "\n******************" << endl;
+	for (int i = 0; i < 80; i++)
+	{
+		cout <<"ARR NEW ["<<i<<"] = " <<this->arr[i] << endl;
+	}
+
+
+	return *this;
 }
 
 
