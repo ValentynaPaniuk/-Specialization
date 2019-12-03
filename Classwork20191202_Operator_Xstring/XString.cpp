@@ -10,7 +10,6 @@ XString::XString()
 
 XString::XString(int size)
 {
-	
 	this -> size = 80;
 	this->arr = new char[this->size];
 	cout << "Enter text (constructor):" << endl;
@@ -71,14 +70,14 @@ XString & XString::operator/(const XString & other)
 
 XString & XString::operator+(const XString & other)
 {
-	
+	char *arr3;
 	int size1 = strlen(this->arr);
 	int size2 = strlen(other.arr);
 	
 	cout << "SIZE this ARR1: " << size1 << endl;
 	cout << "SIZE other ARR2: " << size2 << endl;
 	int j = 0;
-	for (int i = 0; i < 80; i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		if (i < size1)
 		{
@@ -93,9 +92,9 @@ XString & XString::operator+(const XString & other)
 	cout << "\n******************" << endl;
 	for (int i = 0; i < 80; i++)
 	{
-		cout <<"ARR NEW ["<<i<<"] = " <<this->arr[i] << endl;
+		cout <<this->arr[i] <<" ";
 	}
-
+	cout << endl;
 
 	return *this;
 }

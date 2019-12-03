@@ -34,16 +34,19 @@ int main()
 	b.ShowInfoRow();
 	cout << "== C ======================" << endl;
 	XString c(size);
-	cout << "== Operator + ======================" << endl;
-	c.operator+(a);
-	cout << "== Operator + ======================" << endl;
-	cout << "== Operator * ======================" << endl;
+	cout << endl;
+	cout << "\n== Operator * ======================" << endl;
 	c.operator*(a);
-	cout << "== Operator * ======================" << endl;
-	cout << "== Operator / ======================" << endl;
+	cout << "\n== Operator * ======================" << endl;
+	cout << endl;
+	cout << "\n== Operator / ======================" << endl;
 	c.operator/(a);
-	cout << "== Operator / ======================" << endl;
-	
+	cout << "\n== Operator / ======================" << endl;
+	cout << endl;
+	cout << "\n== Operator + ======================" << endl;
+	c.operator+(a);
+	cout << "\n== Operator + ======================" << endl;
+	cout << endl;
 
 
 
