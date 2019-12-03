@@ -1,4 +1,3 @@
-﻿  XString.cpp
-d:\шаг\specialization\classwork20191202_operator_xstring\xstring.cpp(41): warning C4018: <: несоответствие типов со знаком и без знака
-d:\шаг\specialization\classwork20191202_operator_xstring\xstring.cpp(74): warning C4101: arr3: неиспользованная локальная переменная
-  Classwork20191202_Operator_Xstring.vcxproj -> D:\Шаг\Specialization\Classwork20191202_Operator_Xstring\Debug\Classwork20191202_Operator_Xstring.exe
+﻿  Source20191202.cpp
+d:\paniuk\classwork\classwork20191202_operator_xstring\source20191202.cpp(28): warning C4101: 'arr': unreferenced local variable
+  Classwork20191202_Operator_Xstring.vcxproj -> D:\Paniuk\Classwork\Classwork20191202_Operator_Xstring\Debug\Classwork20191202_Operator_Xstring.exe

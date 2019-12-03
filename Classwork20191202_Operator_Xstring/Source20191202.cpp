@@ -24,28 +24,28 @@ using namespace std;
 операцій *=, /= та +=, які діють по вищеописаному принципу. */
 int main()
 {
-	int size = 255;
+	int size = 40;
 	char *arr;
-	cout << "== A ====================" << endl;
+	cout << "== A == "<< endl;
 	XString a(size);
 	a.ShowInfoRow();
-	cout << "\n== B ====================" << endl;
+	cout << "\n== B ==" << endl;
 	XString b(a);
 	b.ShowInfoRow();
-	cout << "== C ======================" << endl;
+	cout << "== C ==" << endl;
 	XString c(size);
 	cout << endl;
-	cout << "\n== Operator * ======================" << endl;
+	cout << "\n== Operator * ==" << endl;
 	c.operator*(a);
-	cout << "\n== Operator * ======================" << endl;
+	cout << "\n== Operator * ==" << endl;
 	cout << endl;
-	cout << "\n== Operator / ======================" << endl;
+	cout << "\n== Operator / ==" << endl;
 	c.operator/(a);
-	cout << "\n== Operator / ======================" << endl;
+	cout << "\n== Operator / ==" << endl;
 	cout << endl;
-	cout << "\n== Operator + ======================" << endl;
+	cout << "\n== Operator + ==" << endl;
 	c.operator+(a);
-	cout << "\n== Operator + ======================" << endl;
+	cout << "\n== Operator + ==" << endl;
 	cout << endl;
 
 

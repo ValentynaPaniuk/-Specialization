@@ -66,8 +66,7 @@ int main()
 		fish4.MovingFish();
 		fish4.SetHealth(health);
 		fish4.SetFamile(famine);
-		
-		
+			
 		Fish::PrintOcean();
 		
 
