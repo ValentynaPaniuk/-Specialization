@@ -12,11 +12,11 @@
 class XString
 {
 	int size;
-	char *arr;
+	char arr[80];
 public:
 	//Constructors: 
 	XString();
-	XString(int size);
+	XString(char arr[]);
 	XString(XString &other);
 
 	//Metody
@@ -26,14 +26,14 @@ public:
 
 	//операція*: повинна повертати новий рядок, який утворюється шляхом перетину двох рядків, тобто їх спільні символи. 
 	//Наприклад, результатом перетину рядків "Microsoft" та "Windows" буде рядок "ioso".
-	XString &operator* (const XString &other);
+	XString operator*= (XString &other);
 
 	//операція / : повинна повертати новий рядок, який утворюється шляхом відбору символів першого рядка, яких немає в другому.
 	//Наприклад, результатом ділення рядка "Microsoft" на "Windows" буде рядок "Mcrft".
-	XString &operator/ (const XString &other);
+	XString operator/= (const XString &other);
 	//операцію +, що дозволяє додати два рядки (конкатенація рядків). 
 	//Наприклад, результатом додавання двох рядків "Microsoft" та "Windows" буде рядок "MicrosoftWindows".
-	XString &operator+ (const XString &other);
+	XString operator+ (const XString &other);
 
 	
 

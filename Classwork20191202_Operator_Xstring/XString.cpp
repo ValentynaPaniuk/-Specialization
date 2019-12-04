@@ -5,30 +5,30 @@ using namespace std;
 
 XString::XString()
 {
-	cout << "Default constructor" << endl;
-}
-
-XString::XString(int size)
-{
-	this -> size = 40;
-	this->arr = new char[this->size];
-	cout << "Enter text (constructor):" << endl;
-	for (int i = 0; i < this->size; i++)
+	for (int i=0; i<80; i++)
 	{
-		cin >> arr[i];
-		if (int(this->arr[i]) == 46)
-		{
-			break;
-		}
+		this->arr[i] = ' ';
 	}
-	cout << "\nOverload constructor " << this << endl;
-	cout << "Constructor SIZE: " << strlen(this->arr) << endl;
+	cout << "Default constructor" <<this<< endl;
 }
 
-XString::XString(XString &other)
+XString::XString(char arr[])
 {
-	this->size = other.size;
-	this->arr = other.arr;
+	for (int i = 0; i < strlen(arr) + 1; i++)
+	{
+		this->arr[i] = arr[i];
+	}
+	cout << "Overload constructor " << this << endl;
+}
+
+
+
+XString::XString(XString & other)
+{
+	for (int i = 0; i < strlen(arr); i++)
+	{
+		this->arr[i] = other.arr[i];
+	}
 	
 	cout << "Copy constructor " << this << endl;
 }
@@ -36,7 +36,7 @@ XString::XString(XString &other)
 void XString::ShowInfoRow()
 {
 	cout << "\nSIZE SHOW INFO= " << strlen(this->arr) << endl;
-	cout << "Row: " << endl;
+	cout << "Row: ";
 	for (int i = 0; i < strlen(this->arr); i++)
 	{
 		cout << this->arr[i];
@@ -46,53 +46,90 @@ void XString::ShowInfoRow()
 	
 }
 
-XString & XString::operator*(const XString & other)
+XString XString::operator*= (XString & other)
 {
-	for (int i = 0; i < this->size; i++)
-	{
-		if (this->arr[i] == other.arr[i])
-			cout << arr[i]<<" ";
-	}
+	char tmp[80] = {};
+	int counter = 0;
 
-	return *this;
+	for (int i = 0; i < strlen(this->arr); i++)
+	{
+		for (int j = 0; j < strlen(other.arr); j++)
+		{
+			if (this->arr[i] == other.arr[j])
+			{
+				tmp[counter] = this->arr[i];
+				counter++;
+			}
+		}
+	}
+	cout << "Identical letters: " << endl;
+	for (int i = 0; i < strlen(tmp); i++)
+	{
+		cout << tmp[i] << " ";
+	}
+	cout << endl;
+
+	return tmp;
 }
 
-XString & XString::operator/(const XString & other)
+XString XString::operator/=(const XString & other)
 {
-	for (int i = 0; i < this->size; i++)
-	{
-		if (this->arr[i] != other.arr[i])
-			cout << arr[i] << " ";
-	}
+	char tmp[80] = {};
+	int counter = 0;
 
-	return *this;
+	for (int i = 0; i < strlen(this->arr); i++)
+	{
+		int counter1 = 0;
+		for (int j = 0; j < strlen(other.arr); j++)
+		{
+			if (this->arr[i] != other.arr[j])
+			{
+				counter1++;
+			}
+			if (counter1 == strlen(other.arr))
+			{
+				tmp[counter] = this->arr[i];
+				counter++;
+			}
+		}
+	}
+	cout << "Different letters: " << endl;
+	for (int i = 0; i < strlen(this->arr); i++)
+	{
+		cout << tmp[i] << " ";
+	}
+	cout << endl;
+	
+	return tmp;
 }
 
-XString & XString::operator+(const XString & other)
+XString XString::operator+(const XString & other)
 {
-	char *arr3;
+	char arr3[80] = {};
+	int j = 0;
 	int size1 = strlen(this->arr);
 	int size2 = strlen(other.arr);
 	
 	cout << "SIZE this ARR1: " << size1 << endl;
 	cout << "SIZE other ARR2: " << size2 << endl;
-	int j = 0;
-	for (int i = 0; i < this->size; i++)
+	
+	for (int i = 0; i < size1+size2; i++)
 	{
 		if (i < size1)
 		{
-			this->arr[i] = this->arr[i];
+			arr3[i] = this->arr[i];
 		}
 		else 
 		{
-			this->arr[i] = other.arr[j];
+			arr3[i] = other.arr[j];
+			j++;
 		}
 	}
 
 	cout << "\n******************" << endl;
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < strlen(arr3); i++)
 	{
-		cout <<this->arr[i] <<" ";
+		cout <<arr3[i] <<" ";
 	}
 	cout << endl;
 
@@ -103,7 +140,5 @@ XString & XString::operator+(const XString & other)
 
 XString::~XString()
 {
-	arr = nullptr;
-	delete[] arr;
 	cout << "Default destructor" << endl;
 }

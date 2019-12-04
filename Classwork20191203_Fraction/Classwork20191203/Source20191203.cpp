@@ -35,12 +35,53 @@ int main()
 Fraction a(12,24);
 Fraction b(5, 3);
 
-a.Reduction(12, 24);
-
-a.operator*(b);
 a.ShowInfoFraction();
+b.ShowInfoFraction();
 
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+b.ShowInfoFraction();
+Fraction::Addition(a, b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+b.ShowInfoFraction();
+Subtraction(a, b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+b.ShowInfoFraction();
+a.Multiplication(a, b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+b.ShowInfoFraction();
+a.Division(a, b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+a.AddOne(a);
+cout << endl;
+b.ShowInfoFraction();
+b.AddOne(b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+a.SubtractOne(a);
+cout << endl;
+b.ShowInfoFraction();
+b.SubtractOne(b);
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
 a.IntDivision();
+b.ShowInfoFraction();
+b.IntDivision();
+cout << "===========================" << endl;
+cout << "===========================" << endl;
+a.ShowInfoFraction();
+a.DoubleDivision();
+b.ShowInfoFraction();
 b.DoubleDivision();
 
 

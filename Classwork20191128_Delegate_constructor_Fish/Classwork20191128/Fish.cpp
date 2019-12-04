@@ -39,6 +39,7 @@ void Fish::MovementFish()
 	if (curseX == true)
 	{
 		this->x++;
+
 	}
 	else 
 	{
@@ -99,7 +100,14 @@ Fish::Fish(string nameFish, int x, int y, int health)
 
 void Fish::ShowInfoFish()
 {
-	cout << nameFish <<" \t\t\t"<< GetID() <<" "<<" coordinates: " << "(" << x << ";" << y << ")   Health: "<< health << endl;
+	if (health > 0)
+	{
+		cout << nameFish << " \t\t\t" << GetID() << " " << " coordinates: " << "(" << x << ";" << y << ")   Health: " << health << endl;
+	}
+	else
+	{
+		cout << nameFish <<" died" << endl;
+	}
 }
 
 
@@ -172,11 +180,14 @@ void Fish::MovingFish()
 			if (this->x == i && this->y == j)
 			{
 				this->ocean[i][j] = ID;
+
 				MovementFish();
+				
 				if (health <=0)
 				{
 					this->ocean[i][j] = 0;
 				}
+
 	
 			}
 		}
