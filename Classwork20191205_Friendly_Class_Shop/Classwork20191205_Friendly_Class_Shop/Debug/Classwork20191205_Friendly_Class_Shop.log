@@ -1,0 +1,36 @@
+﻿  AudioDisk.cpp
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Book.cpp
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Magazine.cpp
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Shop.cpp
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Source20191205.cpp
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\book.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\audiodisk.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C2433: 'Shop': 'friend' not permitted on data declarations
+d:\paniuk\classwork\classwork20191205_friendly_class_shop\classwork20191205_friendly_class_shop\magazine.h(7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  Generating Code...
