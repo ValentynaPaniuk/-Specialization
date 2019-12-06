@@ -20,16 +20,46 @@ using namespace std;
 
 int main()
 {
-
 	Book book1("Kobzar", "Shevchenko", 400, 2018, 328);
-	book1.ShowInfoBook();
-	cout << "**********************************************" << endl;
+	Book book2("Azbuka", "Narod", 50, 2011, 120);
+	Book book3("Education", "RSGU", 100, 2019, 100);
+	
+	Book *books = new Book[Book::GetCounterBook()];
+	books[0] = book1;
+	books[1] = book2;
+	books[2] = book3;
+	
 	Magazine magazine1("Vogue", "Svitanok", 60, 2017, 60);
-	magazine1.ShowInfoMagazine();
-	cout << "**********************************************" << endl;
+	Magazine magazine2("Natali", "Ranok",50, 2019, 100);
+	Magazine magazine3("Maliatko", "Svitanok", 30, 2019, 40);
+
+	Magazine *magazines = new Magazine[Magazine::GetCounterMagazine()];
+	magazines[0] = magazine1;
+	magazines[1] = magazine2;
+	magazines[2] = magazine3;
+
+	
 	AudioDisk disk1("English", "Paisadini", 2019, 200);
-	disk1.ShowInfoDisk();
-	cout << "**********************************************" << endl;
+	AudioDisk disk2("Polish", "Paisadini", 2018, 180);
+	AudioDisk disk3("Franch", "Paisadini", 2017, 170);
+
+	AudioDisk *disks = new AudioDisk[AudioDisk::GetCounterDisk()];
+	disks[0] = disk1;
+	disks[1] = disk2;
+	disks[2] = disk3;
+
+	
+	Shop shop1("SLOVO", "Soborna 255", 3000);
+	shop1.ShovInfoShop();
+	shop1.AllBooks(books, Book::GetCounterBook());
+	shop1.AllMagazine(magazines, Magazine::GetCounterMagazine());
+	shop1.AllDisk(disks, AudioDisk::GetCounterDisk());
+
+	shop1.MostExpensivePriceBook(books, Book::GetCounterBook());
+	shop1.MostExpensivePriceMagazine(magazines, Magazine::GetCounterMagazine());
+	shop1.MostExpensivePriceDisk(disks, AudioDisk::GetCounterDisk());
+
+
 
 	system("pause");
 	return 0;
