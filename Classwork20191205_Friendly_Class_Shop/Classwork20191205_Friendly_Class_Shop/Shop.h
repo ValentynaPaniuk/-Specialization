@@ -43,17 +43,17 @@ public:
 	void MostExpensivePriceMagazine(Magazine *&magazines, int counterMagazine);
 	void MostExpensivePriceDisk(AudioDisk *&disks, int counterAudioDisk);
 
-	void TheCheapestPriceBook();
-	void TheCheapestPriceMagazine();
-	void TheCheapestPriceDisk();
+	void TheCheapestPriceBook(Book *&books, int counterBook);
+	void TheCheapestPriceMagazine(Magazine *&magazines, int counterMagazine);
+	void TheCheapestPriceDisk(AudioDisk *&disks, int counterAudioDisk);
 
-	void AveragePriceBook();
-	void AveragePriceMagazine();
-	void AveragePriceDisk();
+	void AveragePriceBook(Book *&books, int counterBook);
+	void AveragePriceMagazine(Magazine *&magazines, int counterMagazine);
+	void AveragePriceDisk(AudioDisk *&disks, int counterAudioDisk);
 
-	void AllNewBook();
-	void AllNewMagazine();
-	void AllNewDisk();
+	void AllNewBook(Book *&books, int counterBook);
+	void AllNewMagazine(Magazine *&magazines, int counterMagazine);
+	void AllNewDisk(AudioDisk *&disks, int counterAudioDisk);
 
 
 	~Shop();

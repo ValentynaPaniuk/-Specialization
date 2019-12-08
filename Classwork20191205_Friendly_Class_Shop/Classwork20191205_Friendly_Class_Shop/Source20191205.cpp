@@ -59,6 +59,14 @@ int main()
 	shop1.MostExpensivePriceMagazine(magazines, Magazine::GetCounterMagazine());
 	shop1.MostExpensivePriceDisk(disks, AudioDisk::GetCounterDisk());
 
+	shop1.TheCheapestPriceBook(books, Book::GetCounterBook());
+	shop1.TheCheapestPriceMagazine(magazines, Magazine::GetCounterMagazine());
+	shop1.TheCheapestPriceDisk(disks, AudioDisk::GetCounterDisk());
+
+	shop1.AveragePriceBook(books, Book::GetCounterBook());
+	shop1.AveragePriceMagazine(magazines, Magazine::GetCounterMagazine());
+	shop1.AveragePriceDisk(disks, AudioDisk::GetCounterDisk());
+
 
 
 	system("pause");

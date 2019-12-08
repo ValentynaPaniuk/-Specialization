@@ -89,6 +89,94 @@ void Shop::MostExpensivePriceDisk(AudioDisk *& disks, int counterAudioDisk)
 	cout << maxPrice << endl;
 }
 
+void Shop::TheCheapestPriceBook(Book *& books, int counterBook)
+{
+	cout << "The cheapest book = >>>>>> ";
+	double minPrice = 0;
+	for (int i = 0; i < counterBook; i++)
+	{
+		minPrice = books[0].price;
+		if (books[i].price < minPrice)
+		{
+			minPrice = books[i].price;
+		}
+		
+	}
+	cout << minPrice << endl;
+
+
+}
+
+void Shop::TheCheapestPriceMagazine(Magazine *& magazines, int counterMagazine)
+{
+	cout << "The cheapest magazine = >>>>>> ";
+	double minPrice = 0;
+	for (int i = 0; i < counterMagazine; i++)
+	{
+		minPrice = magazines[0].price;
+		if (magazines[i].price < minPrice)
+		{
+			minPrice = magazines[i].price;
+		}
+
+	}
+	cout << minPrice << endl;
+
+}
+
+void Shop::TheCheapestPriceDisk(AudioDisk *& disks, int counterAudioDisk)
+{
+	cout << "The cheapest disk = >>>>>> ";
+	double minPrice = 0;
+	for (int i = 0; i < counterAudioDisk; i++)
+	{
+		minPrice = disks[0].price;
+		if (disks[i].price < minPrice)
+		{
+			minPrice = disks[i].price;
+		}
+
+	}
+	cout << minPrice << endl;
+}
+
+void Shop::AveragePriceBook(Book *& books, int counterBook)
+{
+	double sum = 0;
+	double avarage = 0;
+	for (int i = 0; i < counterBook; i++)
+	{
+		sum += books[i].price;
+		avarage = sum / counterBook;
+	}
+	cout << "Avarage price of book: " << avarage << endl;
+}
+
+void Shop::AveragePriceMagazine(Magazine *& magazines, int counterMagazine)
+{
+	double sum = 0;
+	double avarage = 0;
+	for (int i = 0; i < counterMagazine; i++)
+	{
+		sum += magazines[i].price;
+		avarage = sum / counterMagazine;
+	}
+	cout << "Avarage price of magazine: " << avarage << endl;
+}
+
+void Shop::AveragePriceDisk(AudioDisk *& disks, int counterAudioDisk)
+{
+
+	double sum = 0;
+	double avarage = 0;
+	for (int i = 0; i < counterAudioDisk; i++)
+	{
+		sum += disks[i].price;
+		avarage = sum / counterAudioDisk;
+	}
+	cout << "Avarage price of disk: " << avarage << endl;
+}
+
 void Shop::AllBooks(Book *& books, int counterBook)
 {
 	cout << "              ****   BOOKS: ****  " << endl;
