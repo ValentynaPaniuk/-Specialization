@@ -6,6 +6,7 @@
 
 Var::Var()
 {
+	cout << "Default constructor" << this << endl;
 }
 
 
@@ -13,18 +14,21 @@ Var::Var(int a)
 {
 	this->a = a;
 	this->type = 'i';
+	cout << "Overload constructor Int" << this << endl;
 }
 
 Var::Var(double b)
 {
 	this->b = b;
 	this->type = 'd';
+	cout << "Overload constructor Double" << this << endl;
 }
 
 Var::Var(string c)
 {
 	this->c = c;
 	this->type = 's';
+	cout << "Overload constructor String" << this << endl;
 }
 
 int Var::GetA()
@@ -319,7 +323,30 @@ Var & Var::operator/(const Var & other)
 	return *this;
 }
 
+Var & Var::operator<(const Var & other)
+{
+	if ((this->type == 'i' && other.type == 'i'))
+	{
+		this->a > other.a;
+	}
+
+	if ((this->type == 'd' && other.type == 'd'))
+	{
+		this->b > other.b;
+	}
+
+	if ((this->type == 's' && other.type == 's'))
+	{
+		this->c > other.c;
+	}
+
+
+	return *this;
+
+}
+
 
 Var::~Var()
 {
+	cout << "Default destructor" << this << endl;
 }

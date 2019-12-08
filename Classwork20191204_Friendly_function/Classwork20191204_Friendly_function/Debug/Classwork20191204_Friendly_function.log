@@ -1,4 +1,6 @@
 ﻿  Source20191204.cpp
   Var.cpp
+d:\шаг\specialization\classwork20191204_friendly_function\classwork20191204_friendly_function\var.cpp(330): warning C4552: ">": результат выражения не используется
+d:\шаг\specialization\classwork20191204_friendly_function\classwork20191204_friendly_function\var.cpp(335): warning C4552: ">": результат выражения не используется
   Создание кода...
   Classwork20191204_Friendly_function.vcxproj -> D:\Шаг\Specialization\Classwork20191204_Friendly_function\Debug\Classwork20191204_Friendly_function.exe

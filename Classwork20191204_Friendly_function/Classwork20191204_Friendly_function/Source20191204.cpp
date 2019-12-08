@@ -68,8 +68,6 @@ int main()
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	a.operator-(c);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
-	a.operator*(a);
-	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	a.operator*(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	a.operator*(c);
@@ -83,13 +81,33 @@ int main()
 	b.operator+(a);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	b.operator+(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator-(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator-(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator*(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator*(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator/(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator/(c);
+
 	cout << "STRING: ------------------------------------------------" << endl;
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(a);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
-	c.operator/(d);
+	c.operator-(a);
+	c.operator-(b);
+	c.operator*(a);
+	c.operator*(b);
+	c.operator/(a);
+	c.operator/(b);
+
+
 	
 
 
