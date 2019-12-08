@@ -52,17 +52,10 @@ class Var
 	int a;
 	double b;
 	string c;
-	enum Type {
-		zerro = 0,
-		int_ = 1,
-		double_ = 2,
-		string_ = 3
-	
-	};
+	char type;
 public:
 	//конструктори
 	Var();
-	Var(int a, double b, string c);
 	Var(int a);
 	Var(double b);
 	Var(string c);
@@ -80,6 +73,7 @@ public:
 	Var &operator- (const Var &other);
 	Var &operator* (const Var &other);
 	Var &operator/ (const Var &other);
+
 	Var &operator< (const Var &other);
 	Var &operator> (const Var &other);
 	Var &operator>= (const Var &other);

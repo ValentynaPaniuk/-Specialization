@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <ctime>
+#include "Var.h"
 using namespace std;
 /*Реалізувати клас Var («Універсальна змінна»). Об’єкти цього класу можуть зберігати в
 собі значення наступних типів: 
@@ -51,7 +52,45 @@ cout &lt;&lt; c; //отримаємо &quot;12010&quot;
 */
 int main()
 {
-
+	Var a(5);
+	Var b(5.3);
+	Var c("12345");
+	Var d("678");
+	cout << "INT: ------------------------------------------------" << endl;
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator+(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator+(c);
+	cout << "A = " << a.GetA() << " B = " << b.GetB() << " C = " << c.GetC() << endl;
+	a.operator+(d);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator-(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator-(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator*(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator*(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator*(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator/(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	a.operator/(c);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	cout << endl;
+	cout << "DOUBLE: ------------------------------------------------" << endl;
+	b.operator+(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	b.operator+(c);
+	cout << "STRING: ------------------------------------------------" << endl;
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	c.operator+(a);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	c.operator+(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+	c.operator/(d);
+	
 
 
 	system("pause");
