@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include <iostream>
+#include "CShop.h"
 
 using namespace std;
-class CShop;
+
 /*Аудіо диск (Audio), який має містити наступні поля:
 назва диску;
 виконавець;
@@ -10,9 +11,9 @@ class CShop;
 ціна;
 булівське поле, яке вказує чи аудіо диск є новим: true – новий, false – ні.
 */
+
 class Disk
 {
-	friend CShop;
 	string name;
 	string singer;
 	int number;

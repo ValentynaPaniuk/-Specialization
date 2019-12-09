@@ -1,5 +1,7 @@
 ﻿#include<iostream>
 #include<string>
+#include "CShop.h"
+
 using namespace std;
 /*
 ООП
@@ -44,15 +46,27 @@ using namespace std;
 Для кожного класу написати необхідний набір методів.
 В основній програмі, створити 3 об’єкти шаблонного класу "Магазин" для допустимих в програмі типів (Книги, Журнал, Аудіо диски). В результаті код набуде наступного вигляду: 
 
-
-
 */
 
 
 int main()
 {
+	Book book("Kobzar", "Ranok", "Shevchenko", 200, 1);
+	Book book1("Kobzar1", "Ranok1", "Shevchenko1", 2001, 1);
 
+	Book *arr = new Book[2];
+	arr[0] = book;
+	arr[1] = book1;
+	for (int i = 0; i < 2; i++)
+	{
+		arr[i].ShowInfo();
+	}
+	
 
+	CShop<Book> a(arr, 2);
+	
+	arr = nullptr;
+	delete[] arr;
 	system("pause");
 	return 0;
 }

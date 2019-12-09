@@ -1,2 +1,4 @@
-﻿  CShop.cpp
-  Classwork20191209_Template_class.vcxproj -> D:\Paniuk\Classwork\Classwork20191209_Template_class\Debug\Classwork20191209_Template_class.exe
+﻿  Source20191209.cpp
+Source20191209.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall CShop<class Book>::CShop<class Book>(class Book * &,int)" (??0?$CShop@VBook@@@@QAE@AAPAVBook@@H@Z) в функции _main
+Source20191209.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall CShop<class Book>::~CShop<class Book>(void)" (??1?$CShop@VBook@@@@QAE@XZ) в функции _main
+D:\Шаг\Specialization\Classwork20191209_Template_class\Debug\Classwork20191209_Template_class.exe : fatal error LNK1120: неразрешенных внешних элементов: 2
