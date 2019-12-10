@@ -27,7 +27,7 @@ public:
 	Disk();
 	Disk(string name, string singer, int number, int price, bool type);
 
-	void Showinfo();
+	void ShowInfo();
 	static int GetCounterDisk();
 	string GetClassName();
 	int GetPrice();

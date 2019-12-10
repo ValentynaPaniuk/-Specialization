@@ -37,8 +37,7 @@ public:
 		{
 			tmp[i] = this->arr[i].GetPrice();
 		}
-
-
+		
 		for (int i = 0; i < this->size; i++)
 		{
 			for (int j = 0; j<this->size; j++)
@@ -49,8 +48,7 @@ public:
 				}
 			}
 		}
-
-
+		
 		for (int i = 0; i < this->size; i++)
 		{
 			for (int j = 0; j < this->size; j++)
@@ -70,12 +68,16 @@ public:
 
 	void ShowAll()
 	{
+		cout << "---------------------------------------------------------------" << endl;
 		for (int i = 0; i < this->size; i++)
 		{
+			
 			cout << this->arr[i].GetClassName() << " " << i + 1 << " : " << endl;
 			this->arr[i].ShowInfo();
+			
 			cout << endl;
 		}
+		cout << "---------------------------------------------------------------" << endl;
 	};
 
 
@@ -87,7 +89,9 @@ public:
 		{
 			summa += this->arr[i].GetPrice();
 		}
+		cout << "---------------------------------------------------------------" << endl;
 		cout << this->arr[0].GetClassName() << "'s average price: " << double(summa) / double(this->size) << endl;
+		cout << "---------------------------------------------------------------" << endl;
 	};
 
 
@@ -119,10 +123,10 @@ public:
 			{
 				if (tmp[i] == this->arr[j].GetPrice())
 				{
+					
 					cout << this->arr[j].GetClassName() << " " << i + 1 << endl;
-					cout << "---------------------------------------------------------------" << endl;
 					this->arr[j].ShowInfo();
-					cout << "---------------------------------------------------------------" << endl;
+					
 					cout << endl;
 				}
 			}
@@ -150,8 +154,8 @@ public:
 		{			
 				if (this->arr[i].GetPrice() == max)
 				{
-					cout << "The most expensive: "<<this->arr[i].GetClassName()<<" :"<< endl;
 					cout << "---------------------------------------------------------------" << endl;
+					cout << "The most expensive: "<<this->arr[i].GetClassName()<<" :"<< endl;
 					this->arr[i].ShowInfo();
 					cout << "---------------------------------------------------------------" << endl;
 					cout << endl;
@@ -160,7 +164,31 @@ public:
 
 	}
 
+	void TheCheapest()
+	{
+		int min = 0;
+		min = this->arr[0].GetPrice();
 
+		for (int i = 0; i < this->size; i++)
+		{
+			if (this->arr[i].GetPrice() < min)
+			{
+					min = this->arr[i].GetPrice();
+			}
+		}
+
+		for (int i = 0; i < this->size; i++)
+		{
+			if (this->arr[i].GetPrice() == min)
+			{
+				cout << "---------------------------------------------------------------" << endl;
+				cout << "The cheapest price: " << this->arr[i].GetClassName() << " " << i + 1 << endl;
+				this->arr[i].ShowInfo();
+				cout << "---------------------------------------------------------------" << endl;
+				cout << endl;
+			}
+		}
+	}
 	
 	~CShop()
 	{};

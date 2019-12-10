@@ -55,16 +55,41 @@ using namespace std;
 int main()
 {
 	CShop<Book> shop(3);
+	cout << "All books: ===============================>>" << endl;
 	shop.ShowAll();
-	cout << "Sorting max-min==============>>" << endl;
+	cout << "Sorting max-min ===============================>>" << endl;
 	shop.SortMaxMinElement();
-	cout << "<<=================Sorting max-min=" << endl;
-	
-	cout << "Sorting min-max ==============>>" << endl;
+	cout << "Sorting min-max ==============================>>" << endl;
 	shop.SortMinMaxElement();
-	cout << "Sorting min-max ==============>>" << endl;
 	shop.AveragePrice();
 	shop.MostExpensive();
+	shop.TheCheapest();
+
+
+	cout << "\n\n\n|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
+	CShop<Disk> shop1(3);
+	cout << "All disks: ===============================>>" << endl;
+	shop1.ShowAll();
+	cout << "Sorting max-min ===============================>>" << endl;
+	shop1.SortMaxMinElement();
+	cout << "Sorting min-max ==============================>>" << endl;
+	shop1.SortMinMaxElement();
+	shop1.AveragePrice();
+	shop1.MostExpensive();
+	shop1.TheCheapest();
+
+	cout << "\n\n\n|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
+	CShop<Magazine> shop2(3);
+	cout << "All magazine: ===============================>>" << endl;
+	shop2.ShowAll();
+	cout << "Sorting max-min ===============================>>" << endl;
+	shop2.SortMaxMinElement();
+	cout << "Sorting min-max ==============================>>" << endl;
+	shop2.SortMinMaxElement();
+	shop2.AveragePrice();
+	shop2.MostExpensive();
+	shop2.TheCheapest();
+
 
 
 	system("pause");

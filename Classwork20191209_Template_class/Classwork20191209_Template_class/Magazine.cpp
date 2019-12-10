@@ -7,6 +7,12 @@ using namespace std;
 int Magazine::counterMagazine = 0;
 Magazine::Magazine()
 {
+	this->className = "Magazine";
+	counterMagazine++;
+	cout << this->className << " " << counterMagazine<< " : " << endl;
+	cout << "Enter name magazine : ";	cin >> this->name;
+	cout << "Enter price: ";	cin >> this->price;
+	cout << endl;
 
 }
 

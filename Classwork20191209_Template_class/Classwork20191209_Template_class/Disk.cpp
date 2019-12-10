@@ -4,6 +4,15 @@ int Disk::counterDisk = 0;
 
 Disk::Disk()
 {
+	this->className = "Disk";
+	counterDisk++;
+	cout << this->className << " " << counterDisk << " : " << endl;
+	cout << "Enter name disk: ";		cin >> this->name;
+	cout << "Enter singer: ";	cin >> this->singer;
+	cout << "Enter number: ";	cin >> this->number;
+	cout << "Enter price: ";	cin >> this->price;
+	cout << endl;
+
 }
 
 Disk::Disk(string name, string singer, int number, int price, bool type)
@@ -19,7 +28,7 @@ Disk::Disk(string name, string singer, int number, int price, bool type)
 }
 
 
-void Disk::Showinfo()
+void Disk::ShowInfo()
 {
 	cout << name << "\tSinger: " << singer << "\tNumber: " << number << "\tPrice: " << price << endl;
 }
