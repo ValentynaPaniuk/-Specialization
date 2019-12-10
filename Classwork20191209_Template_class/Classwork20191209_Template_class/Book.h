@@ -13,16 +13,22 @@ using namespace std;
 
 class Book
 {
+	string className;
 	string name;
 	string publHouse;
 	string author;
-	double price;
+	int price;
 	bool type;
+	static int counterBook;
 public:
 	Book();
-	Book(string name, string publHouse, string author, double price, bool type);
+	Book(string name, string publHouse, string author, int price, bool type);
 
 	void ShowInfo();
+	int GetPrice();
+	string GetClassName();
+	static int GetCounterBook();
+
 	~Book();
 };
 

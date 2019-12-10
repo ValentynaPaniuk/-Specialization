@@ -18,9 +18,6 @@
     <ClCompile Include="Source20191209.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CShop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

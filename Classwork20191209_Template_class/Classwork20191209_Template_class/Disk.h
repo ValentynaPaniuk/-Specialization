@@ -14,16 +14,25 @@ using namespace std;
 
 class Disk
 {
+	string className;
 	string name;
 	string singer;
 	int number;
-	double price;
+	int price;
 	bool type;
+	static int counterDisk;
 
 	
 public:
 	Disk();
-	Disk(string name, string singer, int number, double price, bool type);
+	Disk(string name, string singer, int number, int price, bool type);
+
+	void Showinfo();
+	static int GetCounterDisk();
+	string GetClassName();
+	int GetPrice();
+
+
 	~Disk();
 };
 

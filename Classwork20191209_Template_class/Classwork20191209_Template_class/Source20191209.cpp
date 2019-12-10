@@ -1,5 +1,8 @@
 ﻿#include<iostream>
 #include<string>
+#include "Book.h"
+#include "Disk.h"
+#include"Magazine.h"
 #include "CShop.h"
 
 using namespace std;
@@ -51,22 +54,19 @@ using namespace std;
 
 int main()
 {
-	Book book("Kobzar", "Ranok", "Shevchenko", 200, 1);
-	Book book1("Kobzar1", "Ranok1", "Shevchenko1", 2001, 1);
-
-	Book *arr = new Book[2];
-	arr[0] = book;
-	arr[1] = book1;
-	for (int i = 0; i < 2; i++)
-	{
-		arr[i].ShowInfo();
-	}
+	CShop<Book> shop(3);
+	shop.ShowAll();
+	cout << "Sorting max-min==============>>" << endl;
+	shop.SortMaxMinElement();
+	cout << "<<=================Sorting max-min=" << endl;
 	
+	cout << "Sorting min-max ==============>>" << endl;
+	shop.SortMinMaxElement();
+	cout << "Sorting min-max ==============>>" << endl;
+	shop.AveragePrice();
+	shop.MostExpensive();
 
-	CShop<Book> a(arr, 2);
-	
-	arr = nullptr;
-	delete[] arr;
+
 	system("pause");
 	return 0;
 }

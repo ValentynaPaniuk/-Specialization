@@ -7,34 +7,162 @@
 
 using namespace std;
 
-class AudioDisk;
-class Book;
-class Magazine;
-
 template <typename T>
 class CShop
 {
-	/*friend Book;
-	friend Magazine;
-	friend Disk;*/
-
 	int size;
 	T *arr;
 	
 
 public:
-	CShop();
-	CShop(T *&arr, int size);
+	CShop()
+	{
+		cout << "Default constructor arr" << this << endl;
+	};
+	CShop(int size) {
+		this->size = size;
+		this->arr = new T[this->size];
+		for (int i = 0; i < this->size; i++)
+		{
+			arr[i];
+		}
+
+		cout << "Overload constructor arr" << this << endl;
+	};
 	
-	//MaxElement(T *&arr, int size);
-	//MinElement(T *&arr, int size);
-	//Sorting(T *&arr, int size);
-	//Average(T *&arr, int size);
+	void SortMaxMinElement()
+	{
+		int *tmp = new int[this->size];
+		for (int i = 0; i < this->size; i++)
+		{
+			tmp[i] = this->arr[i].GetPrice();
+		}
+
+
+		for (int i = 0; i < this->size; i++)
+		{
+			for (int j = 0; j<this->size; j++)
+			{
+				if (tmp[j] < tmp[j + 1])
+				{
+					swap(tmp[j], tmp[j + 1]);
+				}
+			}
+		}
+
+
+		for (int i = 0; i < this->size; i++)
+		{
+			for (int j = 0; j < this->size; j++)
+			{
+				if (tmp[i] == this->arr[j].GetPrice())
+				{
+					cout << this->arr[j].GetClassName() << " " << i + 1 << endl;
+					this->arr[j].ShowInfo();
+					cout << endl;
+				}
+			}
+		}
+
+		delete[]tmp;
+		tmp = nullptr;
+	};
+
+	void ShowAll()
+	{
+		for (int i = 0; i < this->size; i++)
+		{
+			cout << this->arr[i].GetClassName() << " " << i + 1 << " : " << endl;
+			this->arr[i].ShowInfo();
+			cout << endl;
+		}
+	};
+
+
+	void AveragePrice()
+	{
+		double summa = 0;
+
+		for (int i = 0; i < this->size; i++)
+		{
+			summa += this->arr[i].GetPrice();
+		}
+		cout << this->arr[0].GetClassName() << "'s average price: " << double(summa) / double(this->size) << endl;
+	};
 
 
 
+	void SortMinMaxElement()
+	{
+		int *tmp = new int[this->size];
+		for (int i = 0; i < this->size; i++)
+		{
+			tmp[i] = this->arr[i].GetPrice();
+		}
 
 
-	~CShop();
+		for (int i = 0; i < this->size; i++)
+		{
+			for (int j = this->size-1; j >= 0; j--)
+			{
+				if (tmp[j] < tmp[j - 1])
+				{
+					swap(tmp[j], tmp[j - 1]);
+				}
+			}
+		}
+
+
+		for (int i = 0; i < this->size; i++)
+		{
+			for (int j = 0; j < this->size; j++)
+			{
+				if (tmp[i] == this->arr[j].GetPrice())
+				{
+					cout << this->arr[j].GetClassName() << " " << i + 1 << endl;
+					cout << "---------------------------------------------------------------" << endl;
+					this->arr[j].ShowInfo();
+					cout << "---------------------------------------------------------------" << endl;
+					cout << endl;
+				}
+			}
+		}
+
+		delete[]tmp;
+		tmp = nullptr;
+	};
+
+
+	void MostExpensive()
+	{
+		int max = 0;
+		max = this->arr[0].GetPrice();
+		for (int i = 0; i < this->size; i++)
+		{
+			if (max < this->arr[i].GetPrice())
+			{
+				max = this->arr[i].GetPrice();
+			}
+		}
+
+
+		for (int i = 0; i < this->size; i++)
+		{			
+				if (this->arr[i].GetPrice() == max)
+				{
+					cout << "The most expensive: "<<this->arr[i].GetClassName()<<" :"<< endl;
+					cout << "---------------------------------------------------------------" << endl;
+					this->arr[i].ShowInfo();
+					cout << "---------------------------------------------------------------" << endl;
+					cout << endl;
+				}
+		}
+
+	}
+
+
+	
+	~CShop()
+	{};
 };
 
