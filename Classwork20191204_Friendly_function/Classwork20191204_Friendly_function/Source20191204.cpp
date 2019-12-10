@@ -56,7 +56,9 @@ int main()
 	Var b(5.3);
 	Var c("12345");
 	Var d("678");
-	cout << "INT: ------------------------------------------------" << endl;
+	cout << "==========================================================================" << endl;
+	cout << "||                             Convert to INT:                          ||" << endl;
+	cout << "==========================================================================" << endl;
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	a.operator+(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
@@ -75,9 +77,11 @@ int main()
 	a.operator/(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	a.operator/(c);
-	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	cout << endl;
-	cout << "DOUBLE: ------------------------------------------------" << endl;
+	cout << "==========================================================================" << endl;
+	cout << "||                    Convert to DOUBLE:								  ||" << endl;
+	cout << "==========================================================================" << endl;
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	b.operator+(a);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	b.operator+(c);
@@ -93,19 +97,16 @@ int main()
 	b.operator/(a);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	b.operator/(c);
-
-	cout << "STRING: ------------------------------------------------" << endl;
+	cout << "==========================================================================" << endl;
+	cout << "||                     Convert to STRING:                               ||" << endl;
+	cout << "==========================================================================" << endl;
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(a);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
-	c.operator-(a);
-	c.operator-(b);
-	c.operator*(a);
-	c.operator*(b);
-	c.operator/(a);
-	c.operator/(b);
+
+
 
 
 	

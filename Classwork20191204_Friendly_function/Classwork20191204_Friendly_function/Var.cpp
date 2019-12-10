@@ -301,16 +301,15 @@ Var & Var::operator/(const Var & other)
 		stringstream geek(other.c);
 		int x = 0;
 		geek >> x;
-
+		cout << "X=" << x << endl;
 		if (x != 0)
 		{
 
-			/*int x = stoi(other.c);*/
 			cout << "Int C from string C(number) = " << x << endl;
 			this->a /= x;
 			cout << "int A / string C = " << this->a << endl;
 		}
-		else
+		else if (x <= 0)
 		{
 			cout << "Error!It is impossible to divide by zero" << endl;
 		}
@@ -328,6 +327,7 @@ Var & Var::operator<(const Var & other)
 	if ((this->type == 'i' && other.type == 'i'))
 	{
 		this->a > other.a;
+		cout << this->a << " > " << other.a << endl;
 	}
 
 	if ((this->type == 'd' && other.type == 'd'))

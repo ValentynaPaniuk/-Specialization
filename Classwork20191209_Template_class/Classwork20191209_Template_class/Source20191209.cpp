@@ -80,7 +80,7 @@ int main()
 
 	cout << "\n\n\n|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
 	CShop<Magazine> shop2(3);
-	cout << "All magazine: ===============================>>" << endl;
+	cout << "All magazines: ===============================>>" << endl;
 	shop2.ShowAll();
 	cout << "Sorting max-min ===============================>>" << endl;
 	shop2.SortMaxMinElement();
