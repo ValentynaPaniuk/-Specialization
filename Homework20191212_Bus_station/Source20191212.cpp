@@ -1,26 +1,209 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 using namespace std;
 
-/*Побудувати клас для роботи з однозв’язним списком. 
-Елемент списку містить наступну інформацію про автобус: 
-номер автобуса; 
-прізвище та ініціали водія; 
-номер маршруту. 
+/*РџРѕР±СѓРґСѓРІР°С‚Рё РєР»Р°СЃ РґР»СЏ СЂРѕР±РѕС‚Рё Р· РѕРґРЅРѕР·РІвЂ™СЏР·РЅРёРј СЃРїРёСЃРєРѕРј. Р•Р»РµРјРµРЅС‚ СЃРїРёСЃРєСѓ РјС–СЃС‚РёС‚СЊ РЅР°СЃС‚СѓРїРЅСѓ С–РЅС„РѕСЂРјР°С†С–СЋ РїСЂРѕ Р°РІС‚РѕР±СѓСЃ:
 
-Програма повинна забезпечувати: 
-початкове формування двох списків: 
-з даними про автобуси, які знаходяться в автопарку; 
-з даними про автобуси, які знаходяться на маршрутах. 
-При виїзді кождого автобуса з парку вводиться номер автобуса, і програма видаляє дані про цей автобус з списку автобусів, 
-які знаходяться в автопарку, та записує ці дані в список автобусів, які знаходяться на маршруті. 
-аналогічна операція виконується для списків, якщо якийсь автобус повертається в автопарк; 
-по запиту видіються відомості про автобуси, які знаходяться в автопарку або на маршруті. 
+РЅРѕРјРµСЂ Р°РІС‚РѕР±СѓСЃР°;
+РїСЂС–Р·РІРёС‰Рµ С‚Р° С–РЅС–С†С–Р°Р»Рё РІРѕРґС–СЏ;
+РЅРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Сѓ.
+РџСЂРѕРіСЂР°РјР° РїРѕРІРёРЅРЅР° Р·Р°Р±РµР·РїРµС‡СѓРІР°С‚Рё:
+РїРѕС‡Р°С‚РєРѕРІРµ С„РѕСЂРјСѓРІР°РЅРЅСЏ РґРІРѕС… СЃРїРёСЃРєС–РІ:
+Р· РґР°РЅРёРјРё РїСЂРѕ Р°РІС‚РѕР±СѓСЃРё, СЏРєС– Р·РЅР°С…РѕРґСЏС‚СЊСЃСЏ РІ Р°РІС‚РѕРїР°СЂРєСѓ;
+Р· РґР°РЅРёРјРё РїСЂРѕ Р°РІС‚РѕР±СѓСЃРё, СЏРєС– Р·РЅР°С…РѕРґСЏС‚СЊСЃСЏ РЅР° РјР°СЂС€СЂСѓС‚Р°С….
+РџСЂРё РІРёС—Р·РґС– РєРѕР¶РґРѕРіРѕ Р°РІС‚РѕР±СѓСЃР° Р· РїР°СЂРєСѓ РІРІРѕРґРёС‚СЊСЃСЏ РЅРѕРјРµСЂ Р°РІС‚РѕР±СѓСЃР°, С– РїСЂРѕРіСЂР°РјР° РІРёРґР°Р»СЏС” РґР°РЅС– РїСЂРѕ С†РµР№ Р°РІС‚РѕР±СѓСЃ Р· СЃРїРёСЃРєСѓ Р°РІС‚РѕР±СѓСЃС–РІ, 
+СЏРєС– Р·РЅР°С…РѕРґСЏС‚СЊСЃСЏ РІ Р°РІС‚РѕРїР°СЂРєСѓ, С‚Р° Р·Р°РїРёСЃСѓС” С†С– РґР°РЅС– РІ СЃРїРёСЃРѕРє Р°РІС‚РѕР±СѓСЃС–РІ, СЏРєС– Р·РЅР°С…РѕРґСЏС‚СЊСЃСЏ РЅР° РјР°СЂС€СЂСѓС‚С–.
+Р°РЅР°Р»РѕРіС–С‡РЅР° РѕРїРµСЂР°С†С–СЏ РІРёРєРѕРЅСѓС”С‚СЊСЃСЏ РґР»СЏ СЃРїРёСЃРєС–РІ, СЏРєС‰Рѕ СЏРєРёР№СЃСЊ Р°РІС‚РѕР±СѓСЃ РїРѕРІРµСЂС‚Р°С”С‚СЊСЃСЏ РІ Р°РІС‚РѕРїР°СЂРє;
+РїРѕ Р·Р°РїРёС‚Сѓ РІРёРґС–СЋС‚СЊСЃСЏ РІС–РґРѕРјРѕСЃС‚С– РїСЂРѕ Р°РІС‚РѕР±СѓСЃРё, СЏРєС– Р·РЅР°С…РѕРґСЏС‚СЊСЃСЏ РІ Р°РІС‚РѕРїР°СЂРєСѓ Р°Р±Рѕ РЅР° РјР°СЂС€СЂСѓС‚С–. 
 */
+
+
+template <typename T>
+class Station
+{
+public:
+	//Constructor Station
+	Station()
+	{
+		this->size = 0;
+		this->head = nullptr;
+		cout << "Default constructor Station" << this << endl;
+	}
+	// Destructor Station 
+	~Station()
+	{
+		cout << "Destructor Station" << this << endl;
+		DeleteFirst();
+	}
+
+	//Metor povernennia Size
+	int GetSize()
+	{
+		return this->size;
+	}
+
+	//Metod stvorennia avtobusa na pochatok spyska
+	void Push(T numberBus)
+	{
+		if (head == nullptr)
+		{
+			this->head = new Bus<T>(numberBus);
+		}
+		else
+		{
+			Bus<T> *tmp = this->head;
+			while (tmp->nextBus!= nullptr)
+			{
+				tmp = tmp->nextBus;
+			}
+			tmp->nextBus = new Bus<T>(numberBus);
+		}
+		size++;
+	}
+
+	// Metod dodavannia odnogo avtobusa po indexy
+	void Insert(T numberBus, const int index)
+	{
+		if (index == 0)
+		{
+			Pop(numberBus);
+		}
+		else
+		{
+			Bus<T> *prev = this->head;
+			for (int i = 0; i < index - 1; i++)
+			{
+				prev = prev->nextBus;
+			}
+			Bus<T> *newBus = new Bus<T>(numberBus, prev->nextBus);
+			prev->nextBus = newBus;
+			size++;
+		}
+	}
+
+	//Metod dodavannia pershogo elementy
+	void Pop(T numberBus)
+	{
+		head = new Bus<T>(numberBus, head);
+		size++;
+	}
+
+	//Metod vydalyty za indeksom
+	void RemoveByIndex(const int index)
+	{
+		if (index == 0)
+		{
+			DeleteFirst();
+		}
+		else
+		{
+			Bus<T> *prev = this->head;
+			for (int i = 0; i < index - 1; i++)
+			{
+				prev = prev->nextBus;
+			}
+			Bus<T> *toDel = prev->nextBus;
+			prev->nextBus = toDel->nextBus;
+			delete toDel;
+			size--;
+		}
+	}
+
+	//Metod peregruzky operatora []
+	T &operator[](const int index)
+	{
+		int counter = 0;
+		Bus<T> *bus = this->head;
+
+		while (bus != nullptr)
+		{
+			if (bus == index)
+			{
+				return bus->numberBus;
+			}
+			bus = bus->nextBus;
+			counter++;
+		}
+	}
+
+	//Metod vydalennia pershogo elementa
+	void DeleteFirst()
+	{
+		Bus<T> *tmp = head;
+		head = head->nextBus;
+		delete tmp;
+		size--;
+	}
+
+	//Metod vyvody info about bus
+	void ShowInfoAllBus(int size)
+	{
+		Bus<T> * tmp = head;
+		for (int i = 0; i < size; i++)
+		{
+			tmp[i].ShowInfo();
+		}
+	}
+
+
+private:
+	template <typename T>
+	class Bus
+	{
+	public:
+		Bus *nextBus;
+		T numberBus;
+		string surname_driver;
+		int route;
+		//Constructor dlia Bus
+		Bus(T numberBus = T(), Bus *nexBus = nullptr)
+		{
+			this->numberBus = numberBus;
+			this->nextBus = nextBus;
+			this->surname_driver = "Petrov";
+			this->route = 852;
+
+		}
+
+		//Metod ShowInfo()
+		void ShowInfo()
+		{
+			cout << "Number bus: " << numberBus << "\tSurname driver: " << this->surname_driver << "\tRoute: " << this->route << endl;
+			system("pause");
+		}
+
+	};
+	int size;
+	Bus<T> *head;
+
+
+
+
+};
+
 
 int main()
 {
 
+	Station<int> bus1;
+
+	int numberOfBuses = 0;
+
+	
+	
+
+	cout << "Enter the number of buses: ";	 cin >> numberOfBuses;
+	cout << "======================================" << endl;
+	for (int i = 0; i < numberOfBuses; i++)
+	{
+		int value = 0; //znachennia dlia elementiv spysky
+		cout << "Enter number of bus for number [" << i << "] element: "; cin >> value;
+		bus1.Push(value);
+	
+	}
+
+	bus1.ShowInfoAllBus(numberOfBuses);
+	
 
 	system("pause");
 	return 0;

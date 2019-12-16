@@ -31,23 +31,23 @@ private:
 	int Size; // кількість контейнерів
 
 public:
-	// Конструктор для класу Nodelist
+	//  Constructor for class Nodelist
 	Nodelist()
 	{
 		this->head = nullptr;
 		this->Size = 0;
 	};
 
-	//Метод, що повертає кількість контейнерів
+	//Metod dlia povernennia znachennia polia Size
 	int GetSize()
 	{
 		return this->Size;
 	};
 
-	//Метод, що додає контейнер в кінець(додає елемент списту)
+	//Stvorenny conteynery (додає елемент списту)
 	void Push(T data)
 	{
-		//Перевірка чи він перший в списку
+		//Perevirka chy != nullprt
 		if (this->head == nullptr)
 		{
 			this->head = new Conteiner<T>(data);
@@ -55,7 +55,7 @@ public:
 		}
 		else
 		{
-			Conteiner<T> *tmp = this->head; //Створюємо об'єкт tmp 
+			Conteiner<T> *tmp = this->head; //Stvoruiemo tymchasovyi masuv tmp 
 			while (tmp->nextconteiner != nullptr)// Перевіряємо чи наступний контейнер не дорівнює Nullptr (кінець листа)
 			{
 				tmp = tmp->nextconteiner; // записується адреса наступного контейнеру в контейнер існуючий
@@ -67,7 +67,7 @@ public:
 
 	};
 
-	//Перегрузка оператора []
+	//Peregruzka operatora [] dlya dostupu do konkretnogo konteynera
 
 	T &operator[] (const int index)
 	{
@@ -86,13 +86,16 @@ public:
 	}
 
 
+	
+
+
 
 };
 
 
 int main()
 {
-	//Створюємо об'єкт класу Nodelist
+	//Stvoryuemo obekt list classy Nodelist
 	Nodelist<int> list;
 
 	cout << "Size = " << list.GetSize() << endl;
