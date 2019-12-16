@@ -1,0 +1,3 @@
+﻿  Source20191212.cpp
+d:\шаг\specialization\classwork20191212_simple_list\source20191212.cpp(86): warning C4715: Nodelist<int>::operator[]: значение возвращается не при всех путях выполнения
+  Classwork20191212_Simple_list.vcxproj -> D:\Шаг\Specialization\Classwork20191212_Simple_list\Debug\Classwork20191212_Simple_list.exe
