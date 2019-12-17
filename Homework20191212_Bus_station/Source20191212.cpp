@@ -18,23 +18,56 @@ using namespace std;
 */
 
 
-template <typename T>
+template <typename T1, typename T2, typename T3>
 class Station
 {
+private:
+
+	template <typename T1, typename T2, typename T3>
+	class Bus
+	{
+	public:
+		Bus *nextBus;
+		T1 numberBus;
+		T2 surname_driver;
+		T3 route;
+
+		//Default constructor
+		Bus() {
+			cout << "Default constructor Bus " << this << endl;
+		};
+
+		//Constructor dlia Bus
+		Bus(T1 numberBus, T2 surname_driver, T3 route, Bus *nexBus = nullptr)
+		{
+			this->numberBus = numberBus;
+			this->nextBus = nextBus;
+			this->surname_driver = surname_driver;
+			this->route = route;
+			cout << "Overload constructor Bus " << this << endl;
+
+		}
+
+			
+
+	};
+
+	
+	Bus <T1, T2, T3> *head;
+	int size;
+
+
 public:
+
+	
 	//Constructor Station
 	Station()
 	{
 		this->size = 0;
 		this->head = nullptr;
-		cout << "Default constructor Station" << this << endl;
+		cout << "Default constructor Station " << this << endl;
 	}
-	// Destructor Station 
-	~Station()
-	{
-		cout << "Destructor Station" << this << endl;
-		DeleteFirst();
-	}
+	
 
 	//Metor povernennia Size
 	int GetSize()
@@ -43,49 +76,49 @@ public:
 	}
 
 	//Metod stvorennia avtobusa na pochatok spyska
-	void Push(T numberBus)
+	void Push(T1 numberBus, T2 surname_driver, T3 route)
 	{
 		if (head == nullptr)
 		{
-			this->head = new Bus<T>(numberBus);
+			this->head = new Bus<T1, T2, T3>(numberBus, surname_driver, route);
 		}
 		else
 		{
-			Bus<T> *tmp = this->head;
-			while (tmp->nextBus!= nullptr)
+			Bus<T1, T2, T3> *tmp = this->head;
+			while (tmp->nextBus != nullptr)
 			{
 				tmp = tmp->nextBus;
 			}
-			tmp->nextBus = new Bus<T>(numberBus);
+			tmp->nextBus = new Bus<T1, T2, T3>(numberBus, surname_driver, route);
 		}
-		size++;
+		this->size++;
 	}
 
 	// Metod dodavannia odnogo avtobusa po indexy
-	void Insert(T numberBus, const int index)
+	void Insert(T1 numberBus, T2 surname_driver, T3 route, const int index)
 	{
 		if (index == 0)
 		{
-			Pop(numberBus);
+			Pop(numberBus, surname_driver, route);
 		}
 		else
 		{
-			Bus<T> *prev = this->head;
+			Bus<T1, T2, T3> *prev = this->head;
 			for (int i = 0; i < index - 1; i++)
 			{
 				prev = prev->nextBus;
 			}
-			Bus<T> *newBus = new Bus<T>(numberBus, prev->nextBus);
+			Bus<T1, T2, T3> *newBus = new Bus<T1, T2, T3>(numberBus, surname_driver, route, prev->nextBus);
 			prev->nextBus = newBus;
 			size++;
 		}
 	}
 
 	//Metod dodavannia pershogo elementy
-	void Pop(T numberBus)
+	void Pop(T1 numberBus, T2 surname_driver, T3 route)
 	{
-		head = new Bus<T>(numberBus, head);
-		size++;
+		head = new Bus<T1, T2, T3>(numberBus, surname_driver, route, head);
+		this->size++;
 	}
 
 	//Metod vydalyty za indeksom
@@ -97,12 +130,12 @@ public:
 		}
 		else
 		{
-			Bus<T> *prev = this->head;
+			Bus<T1, T2, T3> *prev = this->head;
 			for (int i = 0; i < index - 1; i++)
 			{
 				prev = prev->nextBus;
 			}
-			Bus<T> *toDel = prev->nextBus;
+			Bus<T1, T2, T3> *toDel = prev->nextBus;
 			prev->nextBus = toDel->nextBus;
 			delete toDel;
 			size--;
@@ -110,10 +143,10 @@ public:
 	}
 
 	//Metod peregruzky operatora []
-	T &operator[](const int index)
+	T1 &operator[](const int index)
 	{
 		int counter = 0;
-		Bus<T> *bus = this->head;
+		Bus<T1, T2, T3> *bus = this->head;
 
 		while (bus != nullptr)
 		{
@@ -129,55 +162,61 @@ public:
 	//Metod vydalennia pershogo elementa
 	void DeleteFirst()
 	{
-		Bus<T> *tmp = head;
-		head = head->nextBus;
+		Bus<T1, T2, T3> *tmp = this->head;
+		this->head = head->nextBus;
 		delete tmp;
 		size--;
 	}
 
-	//Metod vyvody info about bus
-	void ShowInfoAllBus(int size)
+	//Metod vyvodu na ekran
+	void ShowInfo()
 	{
-		Bus<T> * tmp = head;
-		for (int i = 0; i < size; i++)
+		Bus<T1, T2, T3> *tmp = head;
+		int counter = 0;
+	
+		while (tmp != nullptr)
 		{
-			tmp[i].ShowInfo();
+			cout << "Bus N " << counter + 1 << ": " << endl;
+			cout << "Bus's number: " << tmp->numberBus << "\tSurname drivers: " << tmp->surname_driver << "\tRoute: " << tmp->route << endl;
+			tmp = tmp->nextBus;
+			counter++;
+		}
+		//cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+	}
+
+	// Metod 
+	void Transfer(const int index, Station &other)
+	{
+		if (index == 0)
+		{
+			other.Pop(this->head->numberBus, this->head->surname_driver, this->head->route);
+			DeleteFirst();
+		}
+
+		else
+		{
+			Bus<T1, T2, T3> *prev = this->head;
+			for (int i = 0; i < index - 1; i++)
+			{
+				prev = prev->nextBus;
+			}
+			Bus<T1, T2, T3> *toDel = prev->nextBus;
+		
+			other.Pop(toDel->numberBus, toDel->surname_driver, toDel->route);
+			prev->nextBus = toDel->nextBus;
+			delete toDel;
+			this->size--;
+			
 		}
 	}
 
-
-private:
-	template <typename T>
-	class Bus
+	// Destructor Station 
+	~Station()
 	{
-	public:
-		Bus *nextBus;
-		T numberBus;
-		string surname_driver;
-		int route;
-		//Constructor dlia Bus
-		Bus(T numberBus = T(), Bus *nexBus = nullptr)
-		{
-			this->numberBus = numberBus;
-			this->nextBus = nextBus;
-			this->surname_driver = "Petrov";
-			this->route = 852;
-
-		}
-
-		//Metod ShowInfo()
-		void ShowInfo()
-		{
-			cout << "Number bus: " << numberBus << "\tSurname driver: " << this->surname_driver << "\tRoute: " << this->route << endl;
-			system("pause");
-		}
-
-	};
-	int size;
-	Bus<T> *head;
-
-
-
+		DeleteFirst();
+		cout << "Default destructor Station " << this << endl;
+	}
+	
 
 };
 
@@ -185,25 +224,41 @@ private:
 int main()
 {
 
-	Station<int> bus1;
+	Station<int, string, int> stationList;
+	Station<int, string, int> wayList;
 
 	int numberOfBuses = 0;
-
+	int number = 0; //znachennia dlia elementiv spysky
+	string surname;
+	int route;
+	int remoweNumber;
 	
 	
-
 	cout << "Enter the number of buses: ";	 cin >> numberOfBuses;
 	cout << "======================================" << endl;
 	for (int i = 0; i < numberOfBuses; i++)
 	{
-		int value = 0; //znachennia dlia elementiv spysky
-		cout << "Enter number of bus for number [" << i << "] element: "; cin >> value;
-		bus1.Push(value);
-	
+		cout << "====================================================" << endl;
+		cout << "Add information about bus N [" << i + 1 << "]" << endl;
+		cout << "Enter number of bus for number: ";					cin >> number;
+		cout << "Enter surname of driver bus number: ";				cin >> surname;
+		cout << "Enter route of bus number: ";						cin >> route;
+		cout << "====================================================" << endl;
+		stationList.Push(number, surname, route);
 	}
 
-	bus1.ShowInfoAllBus(numberOfBuses);
-	
+	stationList.ShowInfo();
+	//wayList.ShowInfo();
+	cout << "Renowe Number: " << endl;
+	cin >> remoweNumber;
+	stationList.Transfer(remoweNumber-1, wayList);
+	cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+	cout << "************Way List ====>>>>>> " << endl;
+	wayList.ShowInfo();
+	cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+	cout << "************Station List ====>>>>>> " << endl;
+	stationList.ShowInfo();
+	cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
 
 	system("pause");
 	return 0;
