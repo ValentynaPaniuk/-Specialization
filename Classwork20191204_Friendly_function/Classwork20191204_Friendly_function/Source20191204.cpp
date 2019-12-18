@@ -105,8 +105,9 @@ int main()
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
-
-
+	cout << "*********************" << endl;
+	a.operator<(b);
+	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 
 
 	

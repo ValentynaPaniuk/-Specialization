@@ -333,11 +333,13 @@ Var & Var::operator<(const Var & other)
 	if ((this->type == 'd' && other.type == 'd'))
 	{
 		this->b > other.b;
+		cout << this->b << " > " << other.b << endl;
 	}
 
 	if ((this->type == 's' && other.type == 's'))
 	{
 		this->c > other.c;
+		cout << this->c << " > " << other.c << endl;
 	}
 
 
