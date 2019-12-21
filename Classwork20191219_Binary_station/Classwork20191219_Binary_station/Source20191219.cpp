@@ -29,6 +29,7 @@ struct Bus
 
 };
 
+
 Bus *CreateNewBus(int data1, string data2, int data3, int data4)
 {
 	Bus *newBus = new Bus();
@@ -55,56 +56,95 @@ Bus *Insert(Bus *root, int data1, string data2, int data3, int data4)
 	}
 	else
 	{
-		root->right = Insert(root->left, data1, data2, data3, data4);
+		root->right = Insert(root->right, data1, data2, data3, data4);
 	}
 	return root;
 }
 
 
-bool Search(Bus *root, int data1)
-{
-	if (root == NULL)
-	{
+bool Search(Bus* bus, int data1) {
+	if (bus == NULL) {
 		return false;
 	}
-	else if (root->data1 == data1)
-	{
+	else if (bus->data1 == data1) {
 		return true;
 	}
-	else if (data1 <= root->data1)
-	{
-		return Search(root->left, data1);
+	else if (data1 <= bus->data1) {
+		return Search(bus->left, data1);
 	}
-	else
-	{
-		return Search(root->right, data1);
+	else {
+		return Search(bus->right, data1);
 	}
 }
 
+void SearchIndex(Bus *bus)
+{
+	int number;
+	cout << "Enter number for search: " << endl;
+	cin >> number;
+	if (Search(bus, number) == true)
+	{
+		cout << "Number " << number << " found" << endl;
+	}
+	else {
+		cout << number << " Not found" << endl;
+	}
+}
 
+void ShowInfo(Bus *root, int number)
+{
+	if (number == root->data1)
+	{
+		cout << "Info about bus N " << root->data1 << "\tDriver: " << root->data2 << "\tRoute number: " << root->data3 << "\tThenumber of seats on the bus: " << root->data4 << endl;
 
+	}
+}
 
 
 int main()
 {
 	int number = 0;
-	string data2;
-	int data3;
-	int data4;
+	bool exit = false;
 	Bus *root = NULL;
 	root = Insert(root, 111, "Rivne-Lviv", 10, 34);
 	root = Insert(root, 222, "Kyiv-Odesa", 11, 28);
+	root = Insert(root, 123, "Kyiv-Odesa", 11, 28);
 	root = Insert(root, 333, "Poltava-Ternopil", 12, 35);
 
-	cout << "Enter number for search: " << endl;
-	cin >> number;
-	if (Search(root, number) == true)
+	cout << "====  Menu ====== " << endl;
+	cout << "1 - Find bus\n2 - Show info bus\n3 - White file info about bus" << endl;
+	while (!exit)
 	{
-		cout << "Number "<<number<<" found" << endl;
+		cout << "Make your choice: ";
+		cin >> number;
+		switch (number)
+		{
+		case 1:
+		{
+			SearchIndex(root);
+			break;
+		}
+		case 2:
+		{
+			break;
+		}
+		case 3:
+		{
+			break;
+		}
+		default:
+			exit = true;
+			break;
+		}
 	}
-	else {
-		cout << number << " Not found" << endl;
-	}
+
+	
+	
+		
+	
+
+
+
 
 	system("pause");
 	return 0;

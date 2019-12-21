@@ -105,9 +105,23 @@ int main()
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
 	c.operator+(b);
 	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
-	cout << "*********************" << endl;
-	a.operator<(b);
-	cout << "Int A = " << a.GetA() << "\tDouble B = " << b.GetB() << "\tString C = " << c.GetC() << endl;
+
+	cout << "A < B: " << endl;
+	bool result1 = a<b;
+	cout << "Result( < )" << result1 << endl;
+
+	cout << "A > B: " << endl;
+	bool result2 = a > b;
+	cout << "Result( < ) " << result2 << endl;
+
+	cout << "A == B: " << endl;
+	bool result3 = a == b;
+	cout << "Result( == ) " << result3 << endl;
+
+	cout << "A != B: " << endl;
+	bool result4 = a != b;
+	cout << "Result( != ) " << result4 << endl;
+
 
 
 	

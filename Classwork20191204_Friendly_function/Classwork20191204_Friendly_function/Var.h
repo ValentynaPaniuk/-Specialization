@@ -1,6 +1,9 @@
 ﻿#pragma once
-#include <iostream>
-#include <string>
+#pragma once
+#include<string>
+#include<iostream>
+#include <cstdlib>
+#include <sstream>
 using namespace std;
 /*Реалізувати клас Var («Універсальна змінна»). Об’єкти цього класу можуть зберігати в собі значення наступних типів:
 int,
@@ -74,11 +77,12 @@ public:
 	Var &operator* (const Var &other);
 	Var &operator/ (const Var &other);
 
-	Var &operator< (const Var &other);
-	Var &operator> (const Var &other);
-	Var &operator>= (const Var &other);
-	Var &operator<= (const Var &other);
-	Var &operator== (const Var &other);
+	bool operator< (const Var &other);
+	bool operator> (const Var &other);
+	bool operator>= (const Var &other);
+	bool operator<= (const Var &other);
+	bool operator!= (const Var &other);
+	bool operator== (const Var &other);
 
 
 

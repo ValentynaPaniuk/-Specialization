@@ -48,7 +48,7 @@ bool Search(Node* root, int data) {
 	}
 }
 
-//**********************************************
+
 Node* Node::remove(int x, Node *root) {
 
 	if (x < this->data) {
@@ -112,10 +112,27 @@ int main() {
 		{ 
 			cout << number << " Not found" << endl; 
 		}
-		cout << "delete: " << endl;
-		cin >> number2;
-		root->remove(number2, root);
+
+		if (Search(root, number) == true)
+		{
+			int choice;
+			cout << "Do You want to delete number (1- Yes, 2 - No): " << endl;
+			cin >> choice;
+			if (choice == 1)
+			{
+				root->remove(number, root);
+			}
+			else
+			{
+				cout << "Keep looking for the number" << endl;
+			}
+				
+		}
+		
 	}
+
+
+
 	system("pause");
 	return 0;
 }

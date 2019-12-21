@@ -322,31 +322,182 @@ Var & Var::operator/(const Var & other)
 	return *this;
 }
 
-Var & Var::operator<(const Var & other)
+bool Var::operator<(const Var & other)
 {
-	if ((this->type == 'i' && other.type == 'i'))
+	if (this->type == 'i' && other.type == 'i')
 	{
-		this->a > other.a;
-		cout << this->a << " > " << other.a << endl;
+		return this->a < other.a;
+	}
+	else if (this->type == 'i' && other.type == 'd')
+	{
+		return this->a < int(other.b);
+	}
+	else if (this->type == 'i' && other.type == 's')
+	{
+		return this->a < stoi(other.c);
+	}
+	else if (this->type == 'd' && other.type == 'i')
+	{
+		return this->b < double(other.a);
 	}
 
-	if ((this->type == 'd' && other.type == 'd'))
+	else if (this->type == 'd' && other.type == 'd')
 	{
-		this->b > other.b;
-		cout << this->b << " > " << other.b << endl;
+		return this->b < other.b;
 	}
 
-	if ((this->type == 's' && other.type == 's'))
+	else if (this->type == 'd' && other.type == 's')
 	{
-		this->c > other.c;
-		cout << this->c << " > " << other.c << endl;
+		return this->b < stoi(other.c);
 	}
 
+	else if (this->type == 's')
+	{
+		return 0;
+	}
 
-	return *this;
 
 }
 
+bool Var::operator>(const Var & other)
+{
+	if (this->type == 'i' && other.type == 'i')
+	{
+		return this->a > other.a;
+	}
+	else if (this->type == 'i' && other.type == 'd')
+	{
+		return this->a > int(other.b);
+	}
+	else if (this->type == 'i' && other.type == 's')
+	{
+		return this->a > stoi(other.c);
+	}
+	else if (this->type == 'd' && other.type == 'i')
+	{
+		return this->b > double(other.a);
+	}
+
+	else if (this->type == 'd' && other.type == 'd')
+	{
+		return this->b > other.b;
+	}
+
+	else if (this->type == 'd' && other.type == 's')
+	{
+		return this->b > stoi(other.c);
+	}
+
+	else if (this->type == 's')
+	{
+		return 0;
+	}
+	
+}
+
+bool Var::operator>=(const Var & other)
+{
+	if (this->type == 'i' && other.type == 'i')
+	{
+		return this->a >= other.a;
+	}
+	else if (this->type == 'i' && other.type == 'd')
+	{
+		return this->a >= int(other.b);
+	}
+	else if (this->type == 'i' && other.type == 's')
+	{
+		return this->a >= stoi(other.c);
+	}
+	else if (this->type == 'd' && other.type == 'i')
+	{
+		return this->b >= double(other.a);
+	}
+
+	else if (this->type == 'd' && other.type == 'd')
+	{
+		return this->b >= other.b;
+	}
+
+	else if (this->type == 'd' && other.type == 's')
+	{
+		return this->b >= stoi(other.c);
+	}
+
+	else if (this->type == 's')
+	{
+		return 0;
+	}
+}
+
+bool Var::operator<=(const Var & other)
+{
+	if (this->type == 'i' && other.type == 'i')
+	{
+		return this->a <= other.a;
+	}
+	else if (this->type == 'i' && other.type == 'd')
+	{
+		return this->a <= int(other.b);
+	}
+	else if (this->type == 'i' && other.type == 's')
+	{
+		return this->a <= stoi(other.c);
+	}
+	else if (this->type == 'd' && other.type == 'i')
+	{
+		return this->b <= double(other.a);
+	}
+
+	else if (this->type == 'd' && other.type == 'd')
+	{
+		return this->b <= other.b;
+	}
+
+	else if (this->type == 'd' && other.type == 's')
+	{
+		return this->b <= stoi(other.c);
+	}
+
+	else if (this->type == 's')
+	{
+		return 0;
+	}
+}
+
+
+
+
+
+
+
+bool Var::operator!=(const Var & other)
+{
+	{
+		if (this->type != other.type)
+		{
+			return true;
+		}
+		else
+		{
+			return !(this->a == other.a && this->b == other.b && this->c == other.c);
+		}
+	}
+}
+
+bool Var::operator==(const Var & other)
+{
+	{
+		if (this->type != other.type)
+		{
+			return false;
+		}
+		else
+		{
+			return (this->a == other.a && this->b == other.b && this->c == other.c);
+		}
+	}
+}
 
 Var::~Var()
 {
