@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (Homework_Avtomat.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Source20191218.cpp
+d:\шаг\specialization\homework20191218_avtomat\source20191218.cpp(94): warning C4715: Magazine::operator[]: значение возвращается не при всех путях выполнения
+  Homework_Avtomat.vcxproj -> D:\Шаг\Specialization\Homework20191218_Avtomat\Debug\Homework20191218_Avtomat.exe
