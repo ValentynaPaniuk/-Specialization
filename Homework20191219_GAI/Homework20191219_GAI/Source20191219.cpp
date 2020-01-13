@@ -51,7 +51,7 @@ bool Search(Node* root, int data, string text) {
 		return false;
 	}
 	else if (root->data == data) {
-		cout << "Number of car1: " << root->data <<"\tViolation: "<<root->text<< endl;
+	
 		return true;
 	}
 	else if (data <= root->data) {
@@ -206,8 +206,9 @@ int main() {
 				cin >> number;
 				if (Search(root, number, text) == true)
 				{
+					
 					cout << "This car is in the database" << endl;
-
+					cout << "Number of car1: " << root->data << "\tViolation: " << root->text << endl;
 				}
 				else
 				{
@@ -217,7 +218,6 @@ int main() {
 			}
 			case 3:
 			{
-				
 				break;
 			}
 			default:
