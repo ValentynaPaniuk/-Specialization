@@ -123,6 +123,10 @@ void display_level(Node* root, int &i, int level)
 }
 
 
+
+
+
+
 void display_all(Node* root)
 {
 	int i = 0;//нужна для сквозной нумерации уровня в рекурсиях.(по крайней мере моя башка не придумала ничего лучше этого костыля)
@@ -148,6 +152,10 @@ void display_all(Node* root)
 
 
 
+
+
+
+
 int main() {
 	
 	int number;
@@ -161,9 +169,11 @@ int main() {
 
 	Node *root = NULL;
 	root = Insert(root, 10, "Exceeded speed");
+	root = Insert(root, 15, "Did not miss the pedestrian");
 	root = Insert(root, 20, "Drove to the red");
 	root = Insert(root, 30, "Did not miss the pedestrian");
 	root = Insert(root, 40, "Driving while intoxicated");
+	root = Insert(root, 50, "Driving while intoxicated");
 
 	count = Count(root, f);
 	
@@ -207,12 +217,12 @@ int main() {
 			}
 			case 3:
 			{
-
+				
 				break;
 			}
 			default:
 			{
-				cout << "Error! Enter correct choice!";
+				cout << "Error! Enter correct choice!" << endl;
 			}
 			}
 

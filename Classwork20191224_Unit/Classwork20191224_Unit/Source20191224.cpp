@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
 /*ООП
 Опишіть класи "Swordsman" (Мечник), "Archer" (Лучник) і "Mage" (Маг), 
@@ -32,11 +33,12 @@ class Unit
 	double chancetododge;
 	
 public:
-	Unit() {};
+	Unit() { cout << "Default Constructor Unit"<<this<< endl; };
 	Unit(int hp, int attackdamage, double chancetododge) 
 	{  this->hp = hp;
 	   this->attackdamage = attackdamage;
 	   this->chancetododge = chancetododge;
+	   cout << "Overload Constructor Unit " << this << endl;
 	};
 
 	int GetHp()									{ return hp; }
@@ -47,21 +49,14 @@ public:
 	void SetChancetododge(double chancetododge) { this->chancetododge = chancetododge; }
 	virtual void ShowInfo() = 0;
 
-	void Attack()
-	{
-
-	};
-	void Evadeattacks()
-	{
-
-
-	};
-	void Die()
-	{
-
-	};
+	void Attack()						{ ShowInfo(); 	cout << "attack " << "\t\t\t\t\t\t\t\t";};
+	void Evadeattacks() { ShowInfo(); this->hp--; cout << "evade attacks " << endl; }
+	void Die() { if (this->hp == 0) { ShowInfo(); cout << "Die " << " "; } };
+	~Unit() { cout << "Default Destructor Unit " << this << endl; };
 
 };
+
+
 
 class Swordsman: public Unit //(Мечник)
 {
@@ -70,17 +65,21 @@ class Swordsman: public Unit //(Мечник)
 	double chancetododge;
 		
 public:
-	Swordsman() {};
+	Swordsman() { cout << "Default Constructor Swordsman " << this << endl; };
 	Swordsman(int hp, int attackdamage, double chancetododge)
 	{
 		this->hp = hp;
 		this->attackdamage = attackdamage;
 		this->chancetododge = chancetododge;
+		cout << "Overload Constructor Swordsman " << this << endl;
 	};
 	virtual void ShowInfo()
 	{
-		cout << "Swordsman" << endl;
+		cout << "Swordsman" << " HP " << this->hp << "   ";
 	}
+
+
+	~Swordsman() { cout << "Default Destructor Swordsman " << this << endl; };
 
 };
 
@@ -92,20 +91,22 @@ class Archer: public Unit //(Лучник)
 
 public:
 
-	Archer() {};
+	Archer() { cout << "Default Constructor Archer " << this << endl; };
 	Archer(int hp, int attackdamage, double chancetododge)
 	{
 		this->hp = hp;
 		this->attackdamage = attackdamage;
 		this->chancetododge = chancetododge;
+		cout << "Overload Constructor Archer " << this << endl;
 	};
 
 	virtual void ShowInfo()
 	{
-		cout << "Archer" << endl;
+		cout << "Archer" << " HP " << this->hp << "   ";
 	}
 
 	
+	~Archer() { cout << "Default Destructor Archer " << this << endl; };
 };
 
 class Mage: public Unit //(Маг)
@@ -116,40 +117,95 @@ class Mage: public Unit //(Маг)
 
 public:
 
-	Mage() {};
+	Mage() { cout << "Default Constructor Mage " << this << endl;  };
 	Mage(int hp, int attackdamage, double chancetododge)
 	{
 		this->hp = hp;
 		this->attackdamage = attackdamage;
 		this->chancetododge = chancetododge;
+		cout << "Overload Constructor Mage " << this << endl;
 	};
 
 	virtual void ShowInfo()
 	{
-		cout << "Mage" << endl;
+		cout << "Mage" << " HP " << this->hp << "   ";
 	}
 	
+	~Mage() { cout << "Default Destructor Mage " << this << endl; };
 	
 };
 
 
 int main()
 {
+	srand(unsigned(time(NULL)));
+	int x;
 	Unit *unit1[3];
+	Unit *unit2[3];
+	bool exit = false;
 
 	unit1[0] = new Swordsman(15, 5, 0.6);
 	unit1[1] = new Archer(12, 4, 0.4);
 	unit1[2] = new Mage(8, 10, 0.3);
-	
+
+
+	cout << "Unit 1 =================================" << endl;
 	for (int i = 0; i < 3; i++)
 	{
+		x = rand() % 3 + 1;
+		if (x == 1)
+		{ unit1[i]= new Swordsman(15, 5, 0.6);}
+		else if (x == 2)
+		{ unit1[i]= new Archer(12, 4, 0.4);}
+		else if (x == 3)
+		{ unit1[i] = new Mage(8, 10, 0.3);	}
+
+	}
+
+	for (int i = 0; i < 3; i++)
+	{ 
 		unit1[i]->ShowInfo();
 	}
 
+	cout << endl;
+	cout << "Unit 1 ===================================" << endl;
+	cout << "\nUnit 2 =================================" << endl;
+	for (int i = 0; i < 3; i++)
+	{
+		x = rand() % 3 + 1;
+		if (x == 1)
+		{ unit2[i] = new Swordsman(15, 5, 0.6);}
+		else if (x == 2)
+		{ unit2[i] = new Archer(12, 4, 0.4);}
+		else if (x == 3)
+		{ unit2[i] = new Mage(8, 10, 0.3);}
+	}
 
+	for (int i = 0; i < 3; i++)
+	{
+		unit2[i]->ShowInfo();
+	}
+	cout << endl;
+	cout << "Unit 2 =================================" << endl;
+	/*
+	while (!exit)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			unit1[i]->Attack();
+			unit2[i]->Evadeattacks();
 
-	unit1[3] = nullptr;
-	delete[] unit1;
+			unit2[i]->Attack();
+			unit1[i]->Evadeattacks();
+			
+			cout << "\n\n================= THE END " << i << " fight\n\n\n" << endl;
+			system("pause");
+			
+			
+		}
+		cout << endl;
+	}*/
+	
 
 
 	system("pause");
