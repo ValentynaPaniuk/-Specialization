@@ -187,19 +187,16 @@ void Attack(Unit *team1, Unit *team2, const int SIZE)
 	{
 		for (int i = 0; i < SIZE; i++)
 		{
-			cout << "==>> " << i + 1 << endl;
-			team1[i].AttackOther(team2[i]);
-			cout << "==>> " << i + 1 << endl;
-			team2[i].AttackOther(team1[i]);
-			if (team1[i].GetHp <= 0)
+			if (team1[i].GetHp() > 0 && team2[i].GetHp() >0)
 			{
-				cout << "TEAM " << i + 1 << " DIED" << endl;
+				team1[i].AttackOther(team2[i]);
+				team2[i].AttackOther(team1[i]);
 			}
-
-			if (team2[i].GetHp <= 0)
+			if (team1[i].GetHp() <= 0 || team2[i].GetHp() <= 0)
 			{
-				cout << "TEAM "<< i+1 <<" DIED" << endl;
+				cout << "One of the players is dead" << endl;
 			}
+			
 			system("pause");
 		}
 	
