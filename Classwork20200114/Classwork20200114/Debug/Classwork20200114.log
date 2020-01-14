@@ -1,0 +1,4 @@
+﻿  Source20200114.cpp
+d:\paniuk\classwork20200114\classwork20200114\source20200114.cpp(177): warning C4715: 'RealIndex2': not all control paths return a value
+d:\paniuk\classwork20200114\classwork20200114\source20200114.cpp(164): warning C4715: 'RealIndex': not all control paths return a value
+  Classwork20200114.vcxproj -> D:\Paniuk\Classwork20200114\Debug\Classwork20200114.exe

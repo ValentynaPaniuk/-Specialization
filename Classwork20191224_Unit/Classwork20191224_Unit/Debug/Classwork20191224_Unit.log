@@ -1,2 +1,7 @@
 ﻿  Source20191224.cpp
-  Classwork20191224_Unit.vcxproj -> D:\Paniuk\Classwork\Classwork20191224_Unit\Debug\Classwork20191224_Unit.exe
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(194): error C3867: 'Unit::GetHp': non-standard syntax; use '&' to create a pointer to member
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(194): error C2296: '<=': illegal, left operand has type 'int (__thiscall Unit::* )(void)'
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(194): error C2297: '<=': illegal, right operand has type 'int (__thiscall Unit::* )(void)'
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(199): error C3867: 'Unit::GetHp': non-standard syntax; use '&' to create a pointer to member
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(199): error C2296: '<=': illegal, left operand has type 'int (__thiscall Unit::* )(void)'
+d:\paniuk\classwork\classwork20191224_unit\classwork20191224_unit\source20191224.cpp(199): error C2297: '<=': illegal, right operand has type 'int (__thiscall Unit::* )(void)'

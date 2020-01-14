@@ -28,30 +28,52 @@ using namespace std;
 
 class Unit 
 {
+protected:
+	string name;
 	int hp;
 	int attackdamage;
 	double chancetododge;
+	bool dead;
 	
 public:
 	Unit() { cout << "Default Constructor Unit"<<this<< endl; };
-	Unit(int hp, int attackdamage, double chancetododge) 
-	{  this->hp = hp;
-	   this->attackdamage = attackdamage;
-	   this->chancetododge = chancetododge;
-	   cout << "Overload Constructor Unit " << this << endl;
+	
+
+	string GetName()	{ return this->name;}
+	int GetHp()			{ return this->hp; }
+	bool GetStatus()	{ return this->dead; }
+	
+	
+	void ShowInfo()
+	{
+		cout << "*\tClass: " << this->name;
+		if (!this->dead)
+		{
+			cout << "\tHP: " << this->hp << "\tDamage: " << this->attackdamage << "\tChancetododge " << this->chancetododge<<" %\t*\n";
+		}
+		else
+		{
+			cout<<"\t HP: dead "<< "\tDamage: " << this->attackdamage << "\tChancetododge " << this->chancetododge<<"%\t*";
+		}
 	};
 
-	int GetHp()									{ return hp; }
-	int GetAttackdamage() 						{ return attackdamage; }
-	double GetChancetododge()					{ return chancetododge; }
-	void SetHp(int hp)							{ this->hp = hp; }
-	void SetAttackdamage(int attackdamage)		{ this->attackdamage = attackdamage; }
-	void SetChancetododge(double chancetododge) { this->chancetododge = chancetododge; }
-	virtual void ShowInfo() = 0;
+	template<typename T>
+	void AttackOther(T &other)
+	{
+		int chance = rand() % 100 + 1;
+		if (chance <= other.chancetododge)
+		{
+			other.hp -= this->attackdamage;
+			cout << this->name << " attacted " << other.name << endl;
+			if (other.hp <= 0)
+			{
+				cout << this->name << " kill " << other.name << endl;
+			}
+		}
+	}
 
-	void Attack()						{ ShowInfo(); 	cout << "attack " << "\t\t\t\t\t\t\t\t";};
-	void Evadeattacks() { ShowInfo(); this->hp--; cout << "evade attacks " << endl; }
-	void Die() { if (this->hp == 0) { ShowInfo(); cout << "Die " << " "; } };
+
+
 	~Unit() { cout << "Default Destructor Unit " << this << endl; };
 
 };
@@ -60,50 +82,38 @@ public:
 
 class Swordsman: public Unit //(Мечник)
 {
-	int hp;
-	int attackdamage;
-	double chancetododge;
-		
+			
 public:
-	Swordsman() { cout << "Default Constructor Swordsman " << this << endl; };
-	Swordsman(int hp, int attackdamage, double chancetododge)
+
+	Swordsman()
 	{
-		this->hp = hp;
-		this->attackdamage = attackdamage;
-		this->chancetododge = chancetododge;
+	
+		this->name = "Swordman";
+		this->hp = 15;
+		this->attackdamage = 5;
+		this->chancetododge = 60;
+		this->dead = false;
 		cout << "Overload Constructor Swordsman " << this << endl;
 	};
-	virtual void ShowInfo()
-	{
-		cout << "Swordsman" << " HP " << this->hp << "   ";
-	}
-
-
+	
 	~Swordsman() { cout << "Default Destructor Swordsman " << this << endl; };
 
 };
 
 class Archer: public Unit //(Лучник)
 {
-	int hp;
-	int attackdamage;
-	double chancetododge;
+	public:
 
-public:
-
-	Archer() { cout << "Default Constructor Archer " << this << endl; };
-	Archer(int hp, int attackdamage, double chancetododge)
+	
+	Archer()
 	{
-		this->hp = hp;
-		this->attackdamage = attackdamage;
-		this->chancetododge = chancetododge;
+		this->name = "Archer";
+		this->hp = 12;
+		this->attackdamage = 4;
+		this->chancetododge = 40;
+		this->dead = false;
 		cout << "Overload Constructor Archer " << this << endl;
 	};
-
-	virtual void ShowInfo()
-	{
-		cout << "Archer" << " HP " << this->hp << "   ";
-	}
 
 	
 	~Archer() { cout << "Default Destructor Archer " << this << endl; };
@@ -111,101 +121,103 @@ public:
 
 class Mage: public Unit //(Маг)
 {
-	int hp;
-	int attackdamage;
-	double chancetododge;
-
+	
 public:
 
-	Mage() { cout << "Default Constructor Mage " << this << endl;  };
-	Mage(int hp, int attackdamage, double chancetododge)
+	
+	Mage()
 	{
-		this->hp = hp;
-		this->attackdamage = attackdamage;
-		this->chancetododge = chancetododge;
+		this->name = "Mage";
+		this->hp = 8;
+		this->attackdamage = 10;
+		this->chancetododge = 30;
+		this->dead = false;
 		cout << "Overload Constructor Mage " << this << endl;
 	};
 
-	virtual void ShowInfo()
-	{
-		cout << "Mage" << " HP " << this->hp << "   ";
-	}
-	
+		
 	~Mage() { cout << "Default Destructor Mage " << this << endl; };
 	
 };
+
+void RandomTeam(Unit *team, const int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		int random = rand() % 3 + 1;
+		switch (random)
+		{
+		case 1:
+			team[i] = Swordsman();
+			break;
+		case 2:
+			team[i] = Archer();
+			break;
+		case 3:
+			team[i] = Mage();
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void ShowTeam(Unit *team, const int SIZE)
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << "Gamer :" << i+1 << endl;
+		team[i].ShowInfo();
+	}
+}
+
+void ShowAllTeams(Unit *team1, Unit *team2, const int SIZE)
+{
+	cout << "********************************* ONE TEAM ******************************" << endl;
+	ShowTeam(team1, SIZE);
+	cout << "\n******************************* TWO TEAM ******************************" << endl;
+	ShowTeam(team2, SIZE);
+	cout << "\n***********************************************************************" << endl;
+}
+
+void Attack(Unit *team1, Unit *team2, const int SIZE)
+{
+	bool exit = false;
+	while (!exit)
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << "==>> " << i + 1 << endl;
+			team1[i].AttackOther(team2[i]);
+			cout << "==>> " << i + 1 << endl;
+			team2[i].AttackOther(team1[i]);
+			if (team1[i].GetHp <= 0)
+			{
+				cout << "TEAM " << i + 1 << " DIED" << endl;
+			}
+
+			if (team2[i].GetHp <= 0)
+			{
+				cout << "TEAM "<< i+1 <<" DIED" << endl;
+			}
+			system("pause");
+		}
+	
+	
+	}
+}
 
 
 int main()
 {
 	srand(unsigned(time(NULL)));
-	int x;
-	Unit *unit1[3];
-	Unit *unit2[3];
-	bool exit = false;
-
-	unit1[0] = new Swordsman(15, 5, 0.6);
-	unit1[1] = new Archer(12, 4, 0.4);
-	unit1[2] = new Mage(8, 10, 0.3);
-
-
-	cout << "Unit 1 =================================" << endl;
-	for (int i = 0; i < 3; i++)
-	{
-		x = rand() % 3 + 1;
-		if (x == 1)
-		{ unit1[i]= new Swordsman(15, 5, 0.6);}
-		else if (x == 2)
-		{ unit1[i]= new Archer(12, 4, 0.4);}
-		else if (x == 3)
-		{ unit1[i] = new Mage(8, 10, 0.3);	}
-
-	}
-
-	for (int i = 0; i < 3; i++)
-	{ 
-		unit1[i]->ShowInfo();
-	}
-
-	cout << endl;
-	cout << "Unit 1 ===================================" << endl;
-	cout << "\nUnit 2 =================================" << endl;
-	for (int i = 0; i < 3; i++)
-	{
-		x = rand() % 3 + 1;
-		if (x == 1)
-		{ unit2[i] = new Swordsman(15, 5, 0.6);}
-		else if (x == 2)
-		{ unit2[i] = new Archer(12, 4, 0.4);}
-		else if (x == 3)
-		{ unit2[i] = new Mage(8, 10, 0.3);}
-	}
-
-	for (int i = 0; i < 3; i++)
-	{
-		unit2[i]->ShowInfo();
-	}
-	cout << endl;
-	cout << "Unit 2 =================================" << endl;
-	/*
-	while (!exit)
-	{
-		for (int i = 0; i < 3; i++)
-		{
-			unit1[i]->Attack();
-			unit2[i]->Evadeattacks();
-
-			unit2[i]->Attack();
-			unit1[i]->Evadeattacks();
-			
-			cout << "\n\n================= THE END " << i << " fight\n\n\n" << endl;
-			system("pause");
-			
-			
-		}
-		cout << endl;
-	}*/
-	
+	const int SIZE = 3;
+	Unit *One = new Unit[SIZE];
+	Unit *Two = new Unit[SIZE];
+	RandomTeam(One, SIZE);
+	RandomTeam(Two, SIZE);
+	ShowAllTeams(One, Two, SIZE);
+	Attack(One, Two, SIZE);
 
 
 	system("pause");
