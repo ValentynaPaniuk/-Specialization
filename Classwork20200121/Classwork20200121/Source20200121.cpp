@@ -150,7 +150,7 @@ public:
 	void SetNameGroup(string nameGroup) { this->nameGroup = nameGroup; };
 	void SetNameSpecialty(string nameSpecialty) { this->GetNameSpecialty = nameSpecialty; };
 	void SetSizeGroup(unsigned int sizeGroup) { this->sizeGroup = sizeGroup; };
-	void SetCource (unsigned int course) { this->course = course; };
+	void SetCourse (unsigned int course) { this->course = course; };
 
 
 
@@ -258,18 +258,31 @@ public:
 			student = new Student[SIZE];
 			for (int i = 0; i < SIZE; i++)
 			{
+
+
+				/*writeFile << "Name Group:\t" << GetNameGroup() << endl;
+				writeFile << "Name specialty:\t" << GetNameSpecialty() << endl;
+				writeFile << "Size of group: \t" << GetSizeGroup() << endl;
+				writeFile << "Course: \t" << GetCourse() << endl;
+				writeFile << "Name student:\t" << student[i].GetName() << endl;
+				writeFile << "Surname student:\t   " << student[i].GetSurname() << endl;
+				writeFile << "Age student:\t   " << student[i].GetAge() << endl;
+				writeFile << "Average student:\t */
 				readFile.getline(temp, 255);
-				GetNameGroup() = temp;
+				SetNameGroup(temp);
 				readFile.getline(temp, 255);
-				GetNameSpecialty() = temp;
-				readFile.getline(temp, 255);
-				GetCourse() = temp;
+				SetNameSpecialty(temp) ;
 				readFile.getline(temp, 255);
 
+
 				readFile.getline(temp, 255);
-				student[i].GetName() = temp;
+				SetCourse(atoi(temp));
 				readFile.getline(temp, 255);
-				student[i].GetSurname() = temp;
+				SetIDGroup(atoi(temp));
+				readFile.getline(temp, 255);
+				student[i].SetName(temp);
+				readFile.getline(temp, 255);
+				student[i].SetSurname(temp) ;
 				readFile.getline(temp, 255);
 			
 			}
