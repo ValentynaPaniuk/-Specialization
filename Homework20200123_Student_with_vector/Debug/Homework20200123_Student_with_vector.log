@@ -1,0 +1,6 @@
+﻿  Source20200123.cpp
+d:\шаг\specialization\homework20200123_student_with_vector\source20200123.cpp(64): error C3867: "std::vector<Student,std::allocator<_Ty>>::pop_back": нестандартный синтаксис; используйте "&", чтобы создать указатель на член
+          with
+          [
+              _Ty=Student
+          ]
