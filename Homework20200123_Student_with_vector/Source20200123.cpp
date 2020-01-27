@@ -40,6 +40,10 @@ public:
 	};
 
 	int GetNumber() { return this->number; }
+
+	
+
+	
 	
 
 	~Student() {
@@ -47,6 +51,8 @@ public:
 		cout << "Default destructor" << endl;
 	};
 };
+
+
 
 int main()
 {
@@ -59,11 +65,21 @@ int main()
 	Arr.push_back(Student("Slava", "Ivanov", 11, 12));
 	Arr.push_back(Student("Nastya", "Yerotska", 8, 8));
 
-	/*for (vector<Student>::const_iterator i = Arr.begin(); i < Arr.end(); i++)
+	for (vector<Student>::const_iterator i = Arr.begin(); i < Arr.end(); i++)
 	{
-		cout << Arr.<< endl;
+		Student(*i).ShowInfo();
 
-	}*/
+	}
+
+	for (int i = 0; i < Arr.size(); i++)
+	{
+		if (vector<Student>::const_iterator i = Arr.begin(); i < Arr.end(); i++)
+		{
+			
+		}
+
+	}
+
 
 
 	/*for (int i = 0; i < Arr.size(); i++)
@@ -71,22 +87,15 @@ int main()
 		Arr.at(i).ShowInfo();
 	}
 
-	for (int i = 0; i < Arr.size(); i++)
-	{
-		if (Arr.at(i).GetNumber() < Arr.at(i + 1).GetNumber())
-		{
-			Arr.swap;
-		}
-
-	}
+	
 
 
 	cout << "After sorting ====>>>> " << endl;
 	for (int i = 0; i < Arr.size(); i++)
 	{
 		Arr.swap;
-	}
-*/
+	}*/
+
 
 
 	system("pause");

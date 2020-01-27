@@ -1,0 +1,2 @@
+﻿  Source20200127.cpp
+d:\paniuk\classwork\classwork20200127_deque\classwork20200127_deque\source20200127.cpp(179): error C3867: 'Stack<double>::getStackSize': non-standard syntax; use '&' to create a pointer to member
