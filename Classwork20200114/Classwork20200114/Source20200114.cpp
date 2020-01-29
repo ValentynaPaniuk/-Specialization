@@ -3,9 +3,6 @@
 #include<string>
 using namespace std;
 
-
-
-
 class Unit
 {
 protected:
@@ -163,16 +160,22 @@ int RealIndex(Unit *Units, const int SIZE, int choise) {
 	}
 }
 
-int RealIndex2(Unit *Units, const int SIZE, int choise) {
-	int counter = 0;
+int FindSame(int ID, Unit *Blue, Unit *Red, const int SIZE) {
+	bool flag = false;
 
 	for (int i = 0; i < SIZE; i++) {
-		if (!Units[i].GetStatus()) {
-			if (counter == choise) {
+		if (Red[ID].GetClassName() == Blue[i].GetClassName()) {
+			if (!Blue[i].GetStatus()) {
 				return i;
 			}
-			counter++;
+			else {
+				continue;
+			}
+
 		}
+	}
+	if (!flag) {
+		throw "Not found";
 	}
 }
 
@@ -204,11 +207,17 @@ void Attack(Unit *Blue, Unit *Red, const int SIZE) { // Code in this function is
 			}
 
 			if (LivingUnits(Red, SIZE) > 0) {
-				choiseUnit = rand() % LivingUnits(Red, SIZE);
-				choiseUnit = RealIndex2(Red, SIZE, choiseUnit);
 
-				choiseEnemy = rand() % LivingUnits(Blue, SIZE);
-				choiseEnemy = RealIndex2(Blue, SIZE, choiseEnemy);
+				choiseUnit = rand() % LivingUnits(Red, SIZE) + 1;
+				choiseUnit = RealIndex(Red, SIZE, choiseUnit);
+
+				try {
+					choiseEnemy = FindSame(choiseUnit, Blue, Red, SIZE);
+				}
+				catch (...) {
+					choiseEnemy = rand() % LivingUnits(Blue, SIZE) + 1;
+					choiseEnemy = RealIndex(Blue, SIZE, choiseEnemy);
+				}
 
 				for (int i = 0; ; i++) {
 					if (i == SIZE) i = 0;
